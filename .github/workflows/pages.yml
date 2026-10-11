@@ -1,0 +1,77 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Check root hosting
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          if [ -n "$BASE_PATH" ]; then
+            echo 'Use an OWNER.github.io repository or configure a verified custom domain in Settings > Pages.'
+            exit 1
+          fi
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Build static portfolio
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE || 'false' }}
+          NEXT_TELEMETRY_DISABLED: '1'
+        run: npm run build
+      - name: Type check
+        run: npm run typecheck
+      - name: Test exported site
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE || 'false' }}
+        run: npm test
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

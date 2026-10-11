@@ -1,0 +1,77 @@
+{
+  "navigation": {
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "projects": "Proyek",
+    "writings": "Tulisan",
+    "contact": "Kontak",
+    "experience": "Pengalaman",
+    "speakers": "Pembicara",
+    "papers": "Makalah"
+  },
+  "sections": {
+    "about": "Tentang Saya",
+    "skills": "Keahlian Teknis",
+    "projects": "Proyek Pilihan",
+    "experience": "Pengalaman",
+    "organizational": "Pengalaman Organisasi",
+    "writings": "Tulisan",
+    "awards": "Penghargaan",
+    "certifications": "Sertifikasi",
+    "moments": "Dokumentasi",
+    "contact": "Kontak",
+    "speakers": "Pembicara",
+    "papers": "Makalah & Riset"
+  },
+  "controls": {
+    "skipNavigation": "Lewati navigasi",
+    "mainNavigation": "Navigasi utama",
+    "mobileNavigation": "Navigasi utama mobile",
+    "menu": "Menu",
+    "language": "Pilihan bahasa",
+    "viewProjects": "Lihat proyek",
+    "downloadCv": "Unduh CV",
+    "cvUnavailable": "CV belum tersedia",
+    "backToTop": "Kembali ke atas",
+    "technologies": "Teknologi proyek"
+  },
+  "theme": {
+    "switchToDark": "Ganti ke mode gelap",
+    "switchToLight": "Ganti ke mode terang",
+    "dark": "Gelap",
+    "light": "Terang"
+  },
+  "contact": {
+    "email": "Email",
+    "unavailable": "Belum tersedia",
+    "headline": "Terhubung dengan saya."
+  },
+  "metadata": {
+    "description": "Mohamad Maulana Firdaus Ramadhan, AI Engineer. Jelajahi proyek Voice AI, agentic RAG, machine learning, computer vision, pengalaman, dan makalah riset saya.",
+    "imageAlt": "Portofolio Mohamad Maulana Firdaus Ramadhan, AI Engineer",
+    "portfolioLabel": "Portofolio"
+  },
+  "projects": {
+    "repository": "Lihat kode",
+    "evidence": "Lihat dokumentasi",
+    "architecture": "Alur arsitektur ML",
+    "architectureSource": "Dari pengolahan data hingga prediksi batch dan API.",
+    "contribution": "Peran & kontribusi",
+    "context": "Hasil & konteks"
+  },
+  "speakers": {
+    "role": "Pembicara tamu",
+    "certificate": "Lihat sertifikat"
+  },
+  "papers": {
+    "read": "Baca dokumen",
+    "undated": "Tanpa tanggal",
+    "evaluation": "Evaluasi"
+  },
+  "motion": {
+    "focus": "Fokus kerja",
+    "technologies": "Tech stack",
+    "pause": "Jeda animasi",
+    "resume": "Lanjutkan animasi"
+  }
+}
