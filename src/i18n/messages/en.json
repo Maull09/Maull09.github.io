@@ -1,0 +1,77 @@
+{
+  "navigation": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "writings": "Writings",
+    "contact": "Contact",
+    "experience": "Experience",
+    "speakers": "Speakers",
+    "papers": "Papers"
+  },
+  "sections": {
+    "about": "About",
+    "skills": "Technical Skills",
+    "projects": "Selected Projects",
+    "experience": "Experience",
+    "organizational": "Organizational Experience",
+    "writings": "Writings",
+    "awards": "Awards",
+    "certifications": "Certifications",
+    "moments": "Moments",
+    "contact": "Contact",
+    "speakers": "Speaking Engagements",
+    "papers": "Papers & Research"
+  },
+  "controls": {
+    "skipNavigation": "Skip to content",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile main navigation",
+    "menu": "Menu",
+    "language": "Language selection",
+    "viewProjects": "View projects",
+    "downloadCv": "Download CV",
+    "cvUnavailable": "CV unavailable",
+    "backToTop": "Back to top",
+    "technologies": "Project technologies"
+  },
+  "theme": {
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "contact": {
+    "email": "Email",
+    "unavailable": "Not available yet",
+    "headline": "Get in touch."
+  },
+  "metadata": {
+    "description": "Mohamad Maulana Firdaus Ramadhan, AI Engineer building Voice AI, agentic RAG, and machine learning systems. Explore my projects, experience, and research.",
+    "imageAlt": "Mohamad Maulana Firdaus Ramadhan's portfolio, AI Engineer",
+    "portfolioLabel": "Portfolio"
+  },
+  "projects": {
+    "repository": "View code",
+    "evidence": "View documentation",
+    "architecture": "ML architecture flow",
+    "architectureSource": "From data processing to batch and API predictions.",
+    "contribution": "Role & contribution",
+    "context": "Results & context"
+  },
+  "speakers": {
+    "role": "Guest speaker",
+    "certificate": "View certificate"
+  },
+  "papers": {
+    "read": "Read document",
+    "undated": "Undated",
+    "evaluation": "Evaluation"
+  },
+  "motion": {
+    "focus": "Areas of work",
+    "technologies": "Tech stack",
+    "pause": "Pause animation",
+    "resume": "Resume animation"
+  }
+}

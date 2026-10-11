@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Python",
+    "url": "/images/technologies/python.svg",
+    "sha256": "ad9468e1c4903f73ae7eebfbe980f0f727a10db695be3d914e7d8bd25356a862",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://www.python.org/community/logos/",
+    "guidelines": "https://www.python.org/community/logos/"
+  },
+  {
+    "name": "PyTorch",
+    "url": "/images/technologies/pytorch.svg",
+    "sha256": "4dd3f3d3e4102f3bee391fcb3d8ac960a14c48e6655d43b23f7b386d5da36d01",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://github.com/pytorch/pytorch.github.io/blob/8f083bd12192ca12d5e1c1f3d236f4831d823d8f/assets/images/logo.svg",
+    "guidelines": "https://github.com/pytorch/pytorch.github.io/blob/381117ec296f002b2de475402ef29cca6c55e209/assets/brand-guidelines/PyTorch-Brand-Guidelines.pdf"
+  },
+  {
+    "name": "Hugging Face",
+    "url": "/images/technologies/huggingface.svg",
+    "sha256": "aa81744034eecf4ac6b3fb7108dd71223965c7af3c534932391314563b150109",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://huggingface.co/brand",
+    "guidelines": "https://huggingface.co/brand"
+  },
+  {
+    "name": "LangChain",
+    "url": "/images/technologies/langchain.svg",
+    "sha256": "7886444fa437debc26c8e9a51fd86943ad2cbc24b0f8185f15421190f48ab362",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://www.langchain.com/langchain"
+  },
+  {
+    "name": "FastAPI",
+    "url": "/images/technologies/fastapi.svg",
+    "sha256": "af0bdd5fd3f16a49e341089049418af7b02a04eefdc088b2e26c4524fa8b75d1",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://github.com/tiangolo/fastapi/blob/ffb4f77a11f83132b521ba0aac6c95792c19e797/docs/en/docs/img/icon-white.svg"
+  },
+  {
+    "name": "Docker",
+    "url": "/images/technologies/docker.svg",
+    "sha256": "65571291c261ef869c31540a38f3ca0f0ee3bb73f179c172211c8860f19a6359",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://www.docker.com/company/newsroom/media-resources"
+  },
+  {
+    "name": "PostgreSQL",
+    "url": "/images/technologies/postgresql.svg",
+    "sha256": "c8ccadbd88c9312c2ad3734c4861b31d3485ce179ee91d64793143f83cfa745c",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://wiki.postgresql.org/wiki/Logo",
+    "guidelines": "https://www.postgresql.org/about/policies/trademarks/"
+  },
+  {
+    "name": "Redis",
+    "url": "/images/technologies/redis.svg",
+    "sha256": "428b86deb14c8bdacdcdf75987fe454f367bcd078a7e4ae3f84de29aa5bdf136",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://redis.io/brand-guidelines",
+    "guidelines": "https://redis.io/brand-guidelines"
+  },
+  {
+    "name": "Qdrant",
+    "url": "/images/technologies/qdrant.svg",
+    "sha256": "c5fbbbf771648975f22973627b4eb5620c68a4f81ccfb6c21633bb1d04f9fdf1",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://qdrant.tech/img/brand-resources-logos/qdrant-brandmark-white.svg",
+    "guidelines": "https://qdrant.tech/brand-resources/"
+  },
+  {
+    "name": "NumPy",
+    "url": "/images/technologies/numpy.svg",
+    "sha256": "ddbd7d92ab879ceba54f5428f49a703ba8d05d54b93808b7178f5e0afc8373a3",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://numpy.org/press-kit/",
+    "guidelines": "https://github.com/numpy/numpy/blob/main/branding/logo/logoguidelines.md"
+  },
+  {
+    "name": "Pandas",
+    "url": "/images/technologies/pandas.svg",
+    "sha256": "0246b1e34e3760b719bac711184671df5a2cb7a332d3091d49c2a383a2b72b2e",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://pandas.pydata.org/about/citing.html",
+    "guidelines": "https://pandas.pydata.org/about/citing.html"
+  },
+  {
+    "name": "TypeScript",
+    "url": "/images/technologies/typescript.svg",
+    "sha256": "7f023e8d1e767370306ec9437d2de5d5af97491d6208dd7799a3808a7c10a36a",
+    "sourcePackage": "simple-icons@16.35.0",
+    "source": "https://www.typescriptlang.org/branding",
+    "guidelines": "https://www.typescriptlang.org/branding"
+  }
+]

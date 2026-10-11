@@ -1,0 +1,190 @@
+{
+  "source": "Resume___Mohamad_Maulana_Firdaus_Ramadhan.pdf",
+  "experience": [
+    "Built an agentic AI platform using LangChain and LangGraph for multi-step LLM orchestration.",
+    "Developed a hybrid RAG pipeline with Qdrant, dense embeddings, BM25 retrieval, and citation-grounding controls.",
+    "Implemented prompt versioning and an offline GEPA-based prompt-tuning workflow to evaluate and optimize complete LLM prompt templates on frozen evaluation cases.",
+    "Integrated local and hosted LLM providers, including Ollama and OpenAI-compatible APIs, through configurable Python services.",
+    "Added Langfuse tracing, reproducibility metadata, and persisted artifacts for debugging, monitoring, and experiment audits.",
+    "Built an LLM-as-a-Judge and blind human-review evaluation workflow using frozen, pseudonymized evaluation packets to assess output faithfulness, actionability, coherence, completeness, and inter-rater agreement.",
+    "Scaled production Voice AI systems to support over 40,000 conversations and 1,500+ hours of active voice traffic by integrating telephony, AI agents, and event-driven backend workflows.",
+    "Reduced perceived conversational latency by 60% by optimizing real-time audio streaming and response handling for faster initial playback.",
+    "Reduced perceived inbound pickup latency by over 80% by parallelizing call initialization and backend provisioning while triggering immediate pre-opening audio.",
+    "Reduced database response latency by 96% and API payload sizes by over 96% by optimizing SQL queries, data parsing, and payload structures.",
+    "Enabled real-time personalized AI interactions by integrating external APIs to retrieve client data and dynamically inject contextual information into AI agents.",
+    "Eliminated manual post-call reporting delays by automating conversation processing, structured analytics generation, and delivery of results to client systems.",
+    "Expanded autonomous agent capabilities by implementing server-side tool execution for real-time business logic and external system interactions during live conversations.",
+    "Reduced LLM operational costs by over 88% while maintaining production-level performance by optimizing model deployment and serving architecture across staging and production environments.",
+    "Increased manual data-query accuracy from 28–33% to 82.7% by implementing a deterministic response layer using Qdrant semantic retrieval and structured query templates.",
+    "Increased out-of-scope rejection precision from 88.3% to 99.0% across 103 negative test cases by implementing strict-match intent validation and retrieval safeguards.",
+    "Improved recurring-query reliability by developing deterministic SQL template routing that bypassed generative execution and directly bound user variables to validated query templates.",
+    "Strengthened SQL output reliability by integrating an independent Evaluator Agent to validate generated results against user intent before response delivery.",
+    "Streamlined knowledge-base maintenance by engineering an asynchronous Excel ingestion pipeline for batch uploading, overriding, and updating template question-response pairs.",
+    "Achieved 100% defect detection accuracy for partial-discharge signals by developing a real-time LSTM-Attention classification system with faculty researchers.",
+    "Reduced local inference latency to milliseconds by optimizing and deploying signal-processing models on FPGA and Raspberry Pi 5 for real-time industrial monitoring.",
+    "Built a 2,312-sample partial-discharge signal dataset by engineering the acquisition, cleaning, and preprocessing pipeline using Analog Discovery 2.",
+    "Enabled real-time equipment-health monitoring by deploying an end-to-end dashboard for predictive status and signal visualization.",
+    "Automated 85% of repetitive customer inquiries by architecting and deploying a production AI assistant for global visa services.",
+    "Reduced customer response time from a 30-minute manual baseline to under 5 seconds by automating multi-turn customer-support interactions.",
+    "Supported a 10x surge in concurrent requests by designing an asynchronous AWS architecture using ECS, SQS, and EventBridge.",
+    "Improved response grounding for dynamic visa regulations by engineering a multi-source retrieval pipeline using Pinecone and PostgreSQL.",
+    "Reduced deployment cycles to minutes by automating build and release workflows through AWS CodePipeline.",
+    "Smart Legal Drafter Improvement : Enhanced drafting workflows by implementing conditional logic for template-based vs. custom generation, tailored to user profiles (legal vs. non-legal backgrounds).",
+    "Litigation Case Builder & State Management : Refined the internal state machines of the litigation case builder to ensure robust data flow and improved accuracy in tracking case progress.",
+    "Ecosystem Expansion : Developed Google Docs and Microsoft Word extensions to integrate AI legal tools directly into professional writing environments, increasing user productivity.",
+    "Personalization & Prompt Engineering : Engineered a ”Prompt Vault” for pre-configured legal templates (e.g., NDA generation) and built a ”Concierge” system to deliver personalized AI responses based on user-specific data."
+  ],
+  "organizational": [
+    "Directed strategic initiatives and activities related to data science and machine learning for the student body. Coordinated technical workshops and events designed to deepen members’ proficiency in data engineering and analytics.",
+    "Designed and developed a comprehensive Machine Learning curriculum, including structured roadmaps and hands-on tasks for 800+ members. Facilitated project-based learning assignments to enhance practical skills.",
+    "Managed and processed student data to create actionable information. Generated analytics reports using Python Pandas and Excel. Awarded Best Staff of the Month (Feb 2023)."
+  ],
+  "experienceSources": {
+    "Resume_Mohamad_Maulana_Firdaus_Ramadhan.pdf": [
+      "ai-center-agentic-platform",
+      "neuram",
+      "raisa",
+      "partial-discharge",
+      "spun"
+    ],
+    "Resume___Mohamad_Maulana_Firdaus_Ramadhan.pdf": [
+      "legali"
+    ]
+  },
+  "experienceByEntry": {
+    "ai-center-agentic-platform": [
+      "Built an agentic AI platform using LangChain and LangGraph for multi-step LLM orchestration.",
+      "Developed a hybrid RAG pipeline with Qdrant, dense embeddings, BM25 retrieval, and citation-grounding controls.",
+      "Implemented prompt versioning and an offline GEPA-based prompt-tuning workflow to evaluate and optimize complete LLM prompt templates on frozen evaluation cases.",
+      "Integrated local and hosted LLM providers, including Ollama and OpenAI-compatible APIs, through configurable Python services.",
+      "Added Langfuse tracing, reproducibility metadata, and persisted artifacts for debugging, monitoring, and experiment audits.",
+      "Built an LLM-as-a-Judge and blind human-review evaluation workflow using frozen, pseudonymized evaluation packets to assess output faithfulness, actionability, coherence, completeness, and inter-rater agreement."
+    ],
+    "neuram": [
+      "Scaled production Voice AI systems to support over 40,000 conversations and 1,500+ hours of active voice traffic by integrating telephony, AI agents, and event-driven backend workflows.",
+      "Reduced perceived conversational latency by 60% by optimizing real-time audio streaming and response handling for faster initial playback.",
+      "Reduced perceived inbound pickup latency by over 80% by parallelizing call initialization and backend provisioning while triggering immediate pre-opening audio.",
+      "Reduced database response latency by 96% and API payload sizes by over 96% by optimizing SQL queries, data parsing, and payload structures.",
+      "Enabled real-time personalized AI interactions by integrating external APIs to retrieve client data and dynamically inject contextual information into AI agents.",
+      "Eliminated manual post-call reporting delays by automating conversation processing, structured analytics generation, and delivery of results to client systems.",
+      "Expanded autonomous agent capabilities by implementing server-side tool execution for real-time business logic and external system interactions during live conversations.",
+      "Reduced LLM operational costs by over 88% while maintaining production-level performance by optimizing model deployment and serving architecture across staging and production environments."
+    ],
+    "raisa": [
+      "Increased manual data-query accuracy from 28–33% to 82.7% by implementing a deterministic response layer using Qdrant semantic retrieval and structured query templates.",
+      "Increased out-of-scope rejection precision from 88.3% to 99.0% across 103 negative test cases by implementing strict-match intent validation and retrieval safeguards.",
+      "Improved recurring-query reliability by developing deterministic SQL template routing that bypassed generative execution and directly bound user variables to validated query templates.",
+      "Strengthened SQL output reliability by integrating an independent Evaluator Agent to validate generated results against user intent before response delivery.",
+      "Streamlined knowledge-base maintenance by engineering an asynchronous Excel ingestion pipeline for batch uploading, overriding, and updating template question-response pairs."
+    ],
+    "partial-discharge": [
+      "Achieved 100% defect detection accuracy for partial-discharge signals by developing a real-time LSTM-Attention classification system with faculty researchers.",
+      "Reduced local inference latency to milliseconds by optimizing and deploying signal-processing models on FPGA and Raspberry Pi 5 for real-time industrial monitoring.",
+      "Built a 2,312-sample partial-discharge signal dataset by engineering the acquisition, cleaning, and preprocessing pipeline using Analog Discovery 2.",
+      "Enabled real-time equipment-health monitoring by deploying an end-to-end dashboard for predictive status and signal visualization."
+    ],
+    "spun": [
+      "Automated 85% of repetitive customer inquiries by architecting and deploying a production AI assistant for global visa services.",
+      "Reduced customer response time from a 30-minute manual baseline to under 5 seconds by automating multi-turn customer-support interactions.",
+      "Supported a 10x surge in concurrent requests by designing an asynchronous AWS architecture using ECS, SQS, and EventBridge.",
+      "Improved response grounding for dynamic visa regulations by engineering a multi-source retrieval pipeline using Pinecone and PostgreSQL.",
+      "Reduced deployment cycles to minutes by automating build and release workflows through AWS CodePipeline."
+    ],
+    "legali": [
+      "Smart Legal Drafter Improvement : Enhanced drafting workflows by implementing conditional logic for template-based vs. custom generation, tailored to user profiles (legal vs. non-legal backgrounds).",
+      "Litigation Case Builder & State Management : Refined the internal state machines of the litigation case builder to ensure robust data flow and improved accuracy in tracking case progress.",
+      "Ecosystem Expansion : Developed Google Docs and Microsoft Word extensions to integrate AI legal tools directly into professional writing environments, increasing user productivity.",
+      "Personalization & Prompt Engineering : Engineered a ”Prompt Vault” for pre-configured legal templates (e.g., NDA generation) and built a ”Concierge” system to deliver personalized AI responses based on user-specific data."
+    ]
+  },
+  "wordingIndependentFacts": {
+    "neuram": {
+      "4": [
+        "external APIs",
+        "customer profiles",
+        "available slots",
+        "dynamic variables",
+        "ElevenLabs",
+        "personalized",
+        "real-time"
+      ],
+      "6": [
+        "ElevenLabs",
+        "server-side tools",
+        "business logic",
+        "external systems",
+        "live voice conversations"
+      ]
+    },
+    "legali": {
+      "0": [
+        "Smart Legal Drafter",
+        "conditional logic",
+        "template-based",
+        "custom document generation",
+        "legal and non-legal backgrounds"
+      ],
+      "1": [
+        "Litigation Case Builder",
+        "state machines",
+        "data flow",
+        "track case progress"
+      ],
+      "2": [
+        "Google Docs",
+        "Microsoft Word",
+        "extensions",
+        "legal AI tools",
+        "writing documents"
+      ],
+      "3": [
+        "Prompt Vault",
+        "pre-configured legal templates",
+        "NDA generation",
+        "Concierge",
+        "personalized",
+        "user data"
+      ]
+    },
+    "raisa": {
+      "4": [
+        "asynchronous",
+        "Excel ingestion pipeline",
+        "batch uploads",
+        "overrides",
+        "updates",
+        "template question-response pairs",
+        "knowledge base"
+      ]
+    },
+    "organizational": {
+      "0": [
+        "Led",
+        "data science",
+        "machine-learning",
+        "student community",
+        "technical workshops",
+        "events",
+        "data engineering",
+        "analytics"
+      ],
+      "1": [
+        "Machine Learning curriculum",
+        "roadmaps",
+        "hands-on tasks",
+        "800+ members",
+        "project-based assignments",
+        "apply the material"
+      ],
+      "2": [
+        "student data",
+        "analytics reports",
+        "Python",
+        "Pandas",
+        "Excel",
+        "Best Staff of the Month",
+        "February 2023"
+      ]
+    }
+  }
+}

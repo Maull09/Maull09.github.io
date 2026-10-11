@@ -1,0 +1,90 @@
+[
+  {
+    "url": "/documents/papers/indonesian-voice-fraud.pdf",
+    "sha256": "76f11fe3572db0f19ea1e7dcc5b0f3faa225458019d17d817a772a3c3cc17862"
+  },
+  {
+    "url": "/documents/papers/grpo-legal-reasoning.pdf",
+    "sha256": "13d3231220c4143bd4dd52cdbf39b9c5ed5782c09cd4e421fdfbe8b80c3860f5"
+  },
+  {
+    "url": "/documents/papers/legal-verdict-generation.pdf",
+    "sha256": "5a8ce33456abd7f43c1ce8fb946f0cf2ce9f5dbfd9653cdb76a715efc3a11a44"
+  },
+  {
+    "url": "/documents/papers/animal-species-classification.pdf",
+    "sha256": "cc08674e6067ffdb65c225256ad24e1d0bd62dd3f31160edaafd96faedbe861e"
+  },
+  {
+    "url": "/documents/papers/trash-reporting-yolov8.pdf",
+    "sha256": "47df20b4d82a76afbaf1d92398eda328f3d2a7ed517dbd149b79a8d0373d2608"
+  },
+  {
+    "url": "/documents/papers/umkm-investment-prediction.pdf",
+    "sha256": "368da8f95143f7593e05cb10dbdec5fd818b788664526acbb3352398e3102fd7"
+  },
+  {
+    "url": "/documents/papers/bigru-sentiment-analysis.pdf",
+    "sha256": "cae0f1fc7ffcaa1f5c0652c501f816ab0313331c758e76d9ac944fd15c2b22b6"
+  },
+  {
+    "url": "/documents/papers/traffic-accident-yolov8.pdf",
+    "sha256": "d955f52818dff8d63665a671b305971cff91eebea418acb9a54ef3221f4489b9"
+  },
+  {
+    "url": "/documents/certificates/hology-2024.pdf",
+    "sha256": "7bb1d5590eabf424186befa85528586b7ab69d6aefe56ce3e20619dfcc93f1e8"
+  },
+  {
+    "url": "/documents/certificates/gemastik-xvii-2024.pdf",
+    "sha256": "e7f13524798f2e14640af04410fff289a0e49d75fc24ad113ee4985a1b1a94bc"
+  },
+  {
+    "url": "/documents/certificates/tsdn-2024.pdf",
+    "sha256": "9a7ea62f8db25a2b9dc6726adfc17ac9789afc6a2ec7b07c6a0bdbc1ced2a644"
+  },
+  {
+    "url": "/documents/certificates/objective-quest-2024.pdf",
+    "sha256": "612d4fc814a23a11827f5be62b74e8f1e901d7f850be6d5e4079183fce041ffc"
+  },
+  {
+    "url": "/documents/certificates/findit-data-2024.pdf",
+    "sha256": "07c1c6065bd17a96928624c69b20dff86a186ade93137e7f87fbec0001abe1b2"
+  },
+  {
+    "url": "/documents/certificates/findit-hackathon-2025.pdf",
+    "sha256": "b2cf69891c46735cf52f28f3f20f793306745a773c865a7291965458e11a883b"
+  },
+  {
+    "url": "/documents/certificates/gemastik-xvi-2023.pdf",
+    "sha256": "b1150e6ef531c1a7c6891f94c6a7c616dd6a56d97d522bc1e48c9a8f2e2dbf6e"
+  },
+  {
+    "url": "/documents/certificates/hackfest-2024.pdf",
+    "sha256": "165d6eef3e630acd22b987e7d1e4cd27d6eaa4613144109a1f394149cf367b0a"
+  },
+  {
+    "url": "/documents/certificates/datacamp-ds-2023.pdf",
+    "sha256": "8746d55f66b3d0c57dcd826f841b2469a14d08059bbf3318e5d04ed195499d62"
+  },
+  {
+    "url": "/documents/certificates/internnet-wave-6.pdf",
+    "sha256": "8d787abcc2a0f79343300c1ced4c1b499af28ef1aa14b94e5127bdfb767890f0"
+  },
+  {
+    "url": "/documents/certificates/speaker-kat-2024.pdf",
+    "sha256": "c80f5f12c45828b888f8b344e56c0bdbd000b4857eeaa1a7da97391ec81ab598"
+  },
+  {
+    "url": "/documents/certificates/speaker-kadwil-2024.pdf",
+    "sha256": "3f397ab072fce7e587a7e0ba5aa9e57542f1dfaf5996515503f8abf655e0105c"
+  },
+  {
+    "url": "/documents/certificates/speaker-sparta-2024.png",
+    "sha256": "94cd9c7a441edeca10316e7526686809b70554ab6518668e2844064e15958451"
+  },
+  {
+    "url": "/documents/certificates/ristek-datathon-team-2025.png",
+    "sha256": "53de579ea75087e5065ee0273a718aaa15334c8f96e19b30d3d366f71257ff13"
+  }
+]
