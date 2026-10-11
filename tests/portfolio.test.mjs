@@ -598,7 +598,7 @@ test("CV download serves the exact local PDF", async () => {
   const content = Buffer.from(await response.arrayBuffer());
   assert.equal(content.subarray(0, 5).toString(), "%PDF-");
   assert.deepEqual(content, readFileSync("public/documents/cv.pdf"));
-  assert.equal(createHash("sha256").update(content).digest("hex"), "4f97821dbadfcf9ffd8babd41824154c92d3b9e40c5d97b7553754eebbd25980");
+  assert.equal(createHash("sha256").update(content).digest("hex"), "2fd0a5f3a1dc5899f2e419592f79764fb1accf6eacc6618636c8a62247455837");
 });
 
 test("all original images are served locally without a runtime image optimizer", async () => {

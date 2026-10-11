@@ -484,3 +484,14 @@ Nama teknologi sesuai Technical Skills: Python, PyTorch, Hugging Face, LangChain
 FastAPI, Docker, PostgreSQL, Redis, Qdrant, NumPy, Pandas, dan TypeScript.
 Library memakai CC0; lisensi library serta disclaimer merek disimpan bersama aset.
 Logo digunakan sebagai identitas teknologi, tanpa klaim afiliasi atau dukungan.
+
+## Penggantian CV unduhan — 11 Oktober 2026
+
+Atas permintaan pemilik, `public/documents/cv.pdf` diganti dengan
+`Resume_Mohamad_Maulana_Firdaus_Ramadhan.pdf` dari Downloads. PDF disalin
+byte-identik tanpa penyuntingan, berukuran 159.538 byte, dengan SHA-256
+`2fd0a5f3a1dc5899f2e419592f79764fb1accf6eacc6618636c8a62247455837`.
+Tautan `/documents/cv.pdf` tetap dipakai pada kedua bahasa. Tes unduhan
+memastikan respons berisi PDF yang sama dengan file tersebut. Penggantian ini
+hanya memperbarui dokumen unduhan; konten halaman tetap mengikuti sumber dan
+koreksi pemilik yang telah dicatat sebelumnya.
