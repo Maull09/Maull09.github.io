@@ -33,6 +33,16 @@ export function PapersSection({ messages, locale }: { messages: Dictionary; loca
                   <dd>{paper.evaluation[locale]}</dd>
                 </div>
               </dl>
+              {paper.codeLinks && (
+                <div className="project-links">
+                  {paper.codeLinks.map((link) => (
+                    <a key={link.href} href={link.href} aria-label={`${messages.projects.repository}: ${link.label}`}>
+                      {link.label}
+                      <ArrowUpRightIcon size={20} weight="regular" aria-hidden="true" focusable="false" />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </article>
         ))}

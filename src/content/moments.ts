@@ -122,10 +122,10 @@ export const moments: Moment[] = [
       },
     },
     caption: {
-      id: "Di meja kompetisi · Tim MIQ, ITB",
-      en: "At the competition desk · MIQ team, ITB",
+      id: "GEMASTIK XVI · Tim MIQ, ITB",
+      en: "GEMASTIK XVI · MIQ team, ITB",
     },
-    year: null,
+    year: "2023",
   },
   {
     id: "best-staff-recognition",
@@ -142,6 +142,6 @@ export const moments: Moment[] = [
       id: "Best Staff Award · IT Database, Februari",
       en: "Best Staff Award · IT Database, February",
     },
-    year: null,
-  },
+    year: "2023",
+  }
 ];

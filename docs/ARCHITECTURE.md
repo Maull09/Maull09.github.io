@@ -13,14 +13,15 @@ aplikasi, `package.json`, dependensi, atau repositori Git.
 
 Preview lokal kini sudah menggunakan Next.js, React, TypeScript, dan Tailwind CSS.
 Konten CV pemilik kini mengisi profil, pengalaman, organisasi, penghargaan, dan
-sertifikasi dalam ID/EN. Sepuluh proyek terkurasi dari GitHub dan CV memakai aset
+sertifikasi dalam ID/EN. Empat belas proyek terkurasi dari GitHub dan CV memakai aset
 asli serta alur arsitektur. Speakers menampilkan tiga sesi beserta sertifikat lokal.
 Papers memuat delapan makalah riset yang telah dibaca, diurutkan dari tahun terbaru; Moments menampilkan
 delapan gambar dokumentasi asli. Writings belum mempunyai materi terverifikasi dan tidak dirender.
 Repositori Git lokal terhubung ke [Maull09/Maull09.github.io](https://github.com/Maull09/Maull09.github.io)
 melalui HTTPS. Default branch adalah `main`; deployment belum diaktifkan.
 
-Pengalaman profesional menampilkan 28 butir dari dua versi CV, organisasi tiga butir,
+Pengalaman profesional menampilkan 28 butir dari dua versi CV; enam peran organisasi
+dan kepanitiaan menampilkan delapan butir kontribusi,
 dan Technical Skills memuat delapan kategori teknis dari CV serta proyek terkurasi. Detail proyek dan paper terlihat penuh.
 
 Pada awal perencanaan, `AGENTS.md` memuat konteks produk lain. Konteks tersebut
@@ -64,9 +65,9 @@ Fitur tambahan dievaluasi saat ada kebutuhan konkret.
 | 1 | Hero | `#home` | Nama, AI Engineer, fokus, foto, tombol ke Projects dan CV |
 | 2 | About | `#about` | Cerita, ketertarikan, nilai, dan arah eksplorasi |
 | 3 | Technical Skills | `#skills` | Delapan kategori teknologi dari CV dan proyek terkurasi |
-| 4 | Selected Projects | `#projects` | Proyek unggulan dan proyek pendukung, detail lengkap |
+| 4 | Selected Projects | `#projects` | Satu daftar proyek berdasarkan update repository terbaru, detail lengkap |
 | 5 | Experience | `#experience` | Peran, lokasi, periode, seluruh butir kontribusi CV |
-| 6 | Organizational Experience | `#organizational` | Peran organisasi, kolaborasi, seluruh butir CV |
+| 6 | Organizations & Committees | `#organizational` | Peran organisasi dan kepanitiaan, kolaborasi, seluruh butir CV |
 | 7 | Speakers | `#speakers` | Judul sesi, acara, tahun, uraian, sertifikat |
 | 8 | Papers | `#papers` | Judul asli, penulis, tahun, ringkasan, evaluasi, tautan dokumen |
 | 9 | Writings | `#writings` | Tulisan, eksperimen, dan pembelajaran |
@@ -91,9 +92,9 @@ blok gambar netral atas permintaan pemilik. Setelah CV diberikan, entri sementar
 diganti dengan sumber asli. Writings tetap kosong dan mengembalikan null.
 Moments kini memakai delapan gambar dokumentasi dari folder lokal pemilik, dengan
 caption serta alt text ID/EN. Rasio gambar dipertahankan dan tahun yang belum
-terverifikasi tidak ditampilkan. Susunan masonry dua kolom pada desktop mengikuti
-urutan DOM dari atas ke bawah per kolom; mobile memakai satu kolom. Foto dan caption
-tetap menyatu. Tahun berada di sisi kiri caption. Jangan memakai banner proyek
+terverifikasi tidak ditampilkan. Grid dua kolom pada desktop mengikuti urutan DOM
+dari kiri ke kanan lalu baris berikutnya; mobile memakai satu kolom. Foto ditampilkan
+utuh di dalam bingkai 4:3. Foto dan caption tetap menyatu. Tahun berada di sisi kiri caption. Jangan memakai banner proyek
 sebagai foto kegiatan.
 
 ## 4. Wireframe desktop
@@ -160,8 +161,7 @@ Foto personal
 
 About
 Technical Skills
-Proyek unggulan
-Proyek pendukung, satu per baris
+Proyek berdasarkan update repository terbaru, satu per baris
 Experience
 Organizational Experience
 Speakers
@@ -198,17 +198,17 @@ identitas stabil dan urutan kurasi yang eksplisit.
 | --- | --- |
 | Profile | Nama, peran, fokus, bio, foto, alt text, file CV, email, GitHub, LinkedIn |
 | Technical Skills | ID kategori, nama kategori ID/EN, daftar teknologi bersama |
-| Projects | ID, judul, ringkasan, masalah, peran, pendekatan, hasil, teknologi, gambar, tautan |
+| Projects | ID, judul, tahun opsional, lastCommit (date ISO dan URL) atau null, ringkasan, masalah, peran, pendekatan, hasil, teknologi, gambar, tautan |
 | Experience | ID, peran, organisasi, periode, lokasi ID/EN, array contributions ID/EN |
 | Organizational | ID, peran, organisasi, periode, lokasi ID/EN, array contributions ID/EN |
-| Speakers | ID, judul sesi, acara, tahun sesi, ringkasan ID/EN, sertifikat opsional |
-| Papers | ID, judul asli, penulis, tahun, jenis dokumen, ringkasan dan evaluasi ID/EN, URL |
+| Speakers | ID, judul sesi, acara, tahun sesi, date ISO opsional, ringkasan ID/EN, sertifikat opsional |
+| Papers | ID, judul asli, penulis, tahun, jenis dokumen, ringkasan dan evaluasi ID/EN, URL, codeLinks opsional |
 | Writings | ID, judul, ringkasan, tanggal, URL, platform |
 | Awards | ID, nama, penyelenggara, tahun, description ID/EN, URL bukti |
 | Certifications | ID, nama, penerbit, tahun, description ID/EN, URL verifikasi |
 | Moments | ID, gambar, alt text, caption, tahun/tanggal opsional, ukuran sumber |
 
-Kurasi saat ini: sepuluh proyek, tiga sesi pembicara, delapan makalah riset,
+Kurasi saat ini: empat belas proyek, tiga sesi pembicara, delapan makalah riset,
 dan delapan gambar dokumentasi asli.
 Proyek mencantumkan kontribusi dan konteks hasil, serta daftar tautan berlabel ID/EN;
 repository tidak diwajibkan jika sumber yang tersedia hanya presentasi atau sertifikat.
@@ -216,6 +216,40 @@ Moments memenuhi target awal delapan gambar dokumentasi asli, termasuk pengharga
 Daftar tulisan menunggu materi. Tahun makalah mengikuti keterangan pemilik atau
 isi sumber yang jelas, bukan metadata file atau template jurnal. Papers diurutkan
 dari tahun terbaru ke terlama; entri tanpa tahun diletakkan terakhir.
+
+Projects memakai satu daftar berdasarkan tanggal commit terakhir pada branch default
+repository, terbaru dahulu. EngLearn memakai commit terbaru dari tiga repository.
+Metadata commit merupakan snapshot lokal dari GitHub, tanpa fetch saat halaman
+dibuka. Proyek tanpa repository memakai tahun dokumen dan berada pada akhir tahun
+yang sama dalam daftar. Tanggal update ditampilkan dengan label ID/EN, terpisah dari
+tahun paper atau kompetisi. Setiap proyek hanya ditampilkan sekali. Experience mengikuti waktu mulai terbaru,
+termasuk periode yang tumpang tindih; organisasi dan kepanitiaan mengikuti pola sama.
+Awards diurutkan 2025, 2024, 2023; Certifications menempatkan entri tanpa tahun
+setelah sertifikasi bertanggal. Award 2024 dimulai TSDN, Hology, GEMASTIK XVII sesuai
+urutan yang dikoreksi pemilik, tanpa menambahkan bulan perkiraan.
+Speakers mengikuti SPARTA, kadwil, KAT sesuai koreksi pemilik; kadwil tetap hanya
+menampilkan tahun. Moments menampilkan dokumentasi 2024, MIQ GEMASTIK XVI 2023,
+lalu Best Staff Februari 2023.
+
+Inisialisasi tema disisipkan satu kali ke HTML server melalui `ThemeInitializer`
+dan `useServerInsertedHTML`, sehingga script berada di head sebelum konten halaman.
+Komponen tidak merender tag script saat navigasi client antarbahasa. Pada setiap
+perubahan locale, layout effect memanggil `initializeTheme` sebelum paint untuk
+memulihkan atribut tema yang dapat dihapus saat root layout dipasang ulang.
+Pilihan tema aktif disimpan dalam memori modul agar pilihan manual bertahan
+meskipun localStorage diblokir; pilihan sistem tetap mengikuti preferensi perangkat.
+Observer marquee menangkap elemen ketika effect dipasang dan menolak callback setelah cleanup.
+Ukuran kelompok berasal dari borderBoxSize pada laporan ResizeObserver, bukan
+pembacaan getBoundingClientRect pada ref. Observer lama dilepas ketika komponen
+unmount. Marquee tanpa tombol pause; hover, fokus keyboard, dan reduced motion
+tetap mengatur gerakan.
+
+Organisasi dan kepanitiaan menggunakan section `#organizational` serta komponen
+timeline yang sama. Periode jabatan yang belum terverifikasi memakai tahun saja.
+Fraud Call Detector dan FraudSense terhubung ke satu paper deteksi penipuan suara;
+repository keduanya tampil sebagai `codeLinks` pada paper. ChatDoctor tetap satu
+entri proyek. DoNation ditampilkan sebagai prototipe crowdfunding, sedangkan tiga
+repository EngLearn menjadi satu entri web, mobile, dan API.
 
 Hasil proyek AI mencantumkan metrik hanya jika tersedia. Sertakan dataset atau
 skenario evaluasi, baseline jika ada, dan batasan penting. Jelaskan kontribusi
@@ -374,6 +408,12 @@ biasa sehingga tetap bisa digunakan tanpa JavaScript. Bahasa aktif disimpan dala
 URL, tanpa cookie atau penyimpanan browser. Pola ini mengikuti
 [panduan internationalization Next.js](https://nextjs.org/docs/app/guides/internationalization).
 
+LanguageSwitcher merupakan Client Component dengan tautan `scroll={false}`.
+Saat navigasi bahasa, komponen mencatat section dan blok konten di bawah header,
+lalu memulihkan posisi relatif pada terjemahannya sebelum paint. Catatan sementara
+dibagikan antara kontrol desktop dan mobile dalam memori modul dan dikonsumsi
+satu kali setelah locale tujuan dirender; tidak memakai hash lama atau localStorage.
+
 Saat memasukkan bio, proyek, atau tulisan asli, sediakan konten dalam kedua bahasa.
 Nama pemilik, merek platform, serta URL kontak tidak perlu diterjemahkan.
 
@@ -494,7 +534,9 @@ Pages dan SITE_INDEXABLE dari repository variable, dengan default false.
 `src/seo/portfolio.ts` mengatur title dengan nama lengkap dan AI Engineer,
 description ID/EN, author, Open Graph, Twitter Card, dan JSON-LD ProfilePage/Person.
 Structured data memakai identitas, pengantar, serta GitHub dan LinkedIn yang terlihat
-pada halaman. Tidak menambahkan alamat, nomor telepon, email, skor, atau tanggal
+pada halaman. Alias yang diberikan pemilik disimpan di `profile.alternateNames`
+dan dimasukkan sebagai `mainEntity.alternateName` pada Person di kedua bahasa.
+Tidak menambahkan alamat, nomor telepon, email, skor, atau tanggal
 publikasi yang belum diverifikasi. JSON-LD meng-escape karakter `<` sebelum dimasukkan
 ke script agar isi data tidak dapat menutup elemen script.
 
@@ -505,6 +547,14 @@ Preview dengan domain terisi tetap noindex sampai SITE_INDEXABLE diaktifkan.
 
 `/id/share-image.png` dan `/en/share-image.png` menyajikan PNG 1200 × 630 yang dibuat lokal
 oleh Next.js ImageResponse. `/icon.svg` menyajikan favicon monogram MF.
+`public/favicon.png` merupakan rasterisasi monogram yang sama, berukuran 96 × 96 px.
+Halaman root redirect dan metadata ID/EN mencantumkan `/favicon.png` pada link icon
+agar tersedia dalam format yang didukung Google Search, dengan URL tetap.
+`public/favicon.ico` memuat monogram yang sama pada ukuran 16, 32, dan 48 px untuk
+tab browser. Root serta metadata ID/EN mencantumkan kedua format; alamat standar
+`/favicon.ico` juga dapat diambil langsung oleh browser.
+Setelah perubahan dipublikasikan, minta pengindeksan ulang halaman utama melalui
+Search Console; favicon baru memerlukan perayapan ulang dan tidak dijamin tampil.
 `/robots.txt` mengizinkan crawler membaca directive noindex pada preview.
 `/sitemap.xml` kosong pada preview; saat indexing aktif hanya berisi dua halaman
 canonical ID/EN beserta language alternates. Root redirect, anchor section, PDF,
@@ -561,7 +611,8 @@ jeda manual dan IntersectionObserver untuk menghentikan animasi di luar viewport
 CSS menggerakkan kelompok identik dari kanan ke kiri. ResizeObserver mengukur
 lebar satu kelompok serta viewport dan menentukan jumlah salinan untuk menutup
 ruang sepanjang loop. Semua salinan memakai aria-hidden. Hover serta fokus menjeda animasi. Reduced motion dan stylesheet
-noscript menampilkan satu daftar statis lengkap. Kontrol dan label tersedia ID/EN.
+noscript menampilkan satu daftar statis lengkap. Label area tersedia ID/EN.
+Tombol pause dihapus; area marquee menerima fokus keyboard untuk menjeda animasi.
 
 Logo SVG Simple Icons 16.35.0 disimpan di public/images/technologies; CSS mask
 mengikuti warna teks pada kedua tema. Paket sumber hanya diunduh ke cache untuk
@@ -574,8 +625,9 @@ Section menentukan ikon judul dari id section yang bertipe eksplisit. Semua ikon
 judul berasal dari Phosphor SSR dan bersifat dekoratif; nama heading tetap
 tersedia dalam ID/EN. Hero memakai ikon CPU di samping peran AI Engineer.
 Hero dan semua section memakai tiga pola CSS statis bergantian: diagonal, titik,
-dan garis horizontal. Selector nth-of-type mengikuti section yang dirender dan
-mengganti latar antara background serta surface sesuai tema. Baris fokus memakai
-diagonal pada surface. Tidak ada aset bitmap, filter pada foto, atau dependensi baru.
-Tombol marquee berupa ikon tanpa tulisan terlihat atau tooltip; aria-label
-dan aria-pressed tetap menjelaskan tindakan dan keadaan untuk pembaca layar.
+dan garis horizontal. Selector nth-of-type mengikuti section yang dirender untuk
+memilih tekstur. Semua section dan baris fokus memakai warna dasar background yang
+sama dengan Hero pada kedua tema. Baris fokus memakai tekstur diagonal.
+Tidak ada aset bitmap, filter pada foto, atau dependensi baru.
+Marquee tidak menampilkan tombol atau kolom kontrol; aria-label menjelaskan isi
+area untuk pembaca layar. Fokus keyboard ditandai outline yang sama dengan kontrol lain.

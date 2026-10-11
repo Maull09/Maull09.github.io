@@ -10,14 +10,16 @@ export function MomentsSection({ title, locale }: { title: string; locale: Local
       <div className="moments-grid">
         {moments.map((moment) => (
           <figure key={moment.id} className="moment">
-            <Image
-              className="moment-photo"
-              src={moment.image.src}
-              alt={moment.image.alt[locale]}
-              width={moment.image.width}
-              height={moment.image.height}
-              sizes="(min-width: 1104px) 508px, (min-width: 768px) calc((100vw - 88px) / 2), calc(100vw - 40px)"
-            />
+            <div className="moment-frame">
+              <Image
+                className="moment-photo"
+                src={moment.image.src}
+                alt={moment.image.alt[locale]}
+                width={moment.image.width}
+                height={moment.image.height}
+                sizes="(min-width: 1104px) 508px, (min-width: 768px) calc((100vw - 88px) / 2), calc(100vw - 40px)"
+              />
+            </div>
             <figcaption>
               {moment.year && <span className="moment-year">{moment.year}</span>}
               <span className="moment-caption">{moment.caption[locale]}</span>

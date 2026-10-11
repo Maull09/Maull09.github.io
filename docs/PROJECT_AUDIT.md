@@ -495,3 +495,138 @@ Tautan `/documents/cv.pdf` tetap dipakai pada kedua bahasa. Tes unduhan
 memastikan respons berisi PDF yang sama dengan file tersebut. Penggantian ini
 hanya memperbarui dokumen unduhan; konten halaman tetap mengikuti sumber dan
 koreksi pemilik yang telah dicatat sebelumnya.
+
+## Preview lokal: kepanitiaan dan proyek tambahan — 11 Oktober 2026
+
+Perubahan disiapkan di workspace lokal tanpa commit, push, PR, perubahan variable,
+atau deployment GitHub. Enam peran organisasi/kepanitiaan memakai timeline yang
+sama. Asumsi pembaca: perekrut dan kolaborator membandingkan kontribusi lalu
+membuka kode, makalah, atau bukti kompetisi. Tautan kode paper memakai nama
+proyek, area klik 44 px, dan pembungkusan pada mobile seperti tautan Projects.
+
+### Kepanitiaan
+
+- Head of Datavidia ARKAVIDIA 9.0 (2025): jabatan dan sekitar 800 peserta berasal
+  dari keterangan pemilik. Surat Keterangan Ketua Datavidia mengonfirmasi Ketua
+  Divisi pada ARKAVIDIA 9.0, dengan kegiatan Februari–Mei 2025; surat tidak menetapkan
+  awal masa jabatan, sehingga timeline memakai 2025. Uraian koordinasi panitia,
+  komunikasi peserta, dan kesiapan operasional adalah draf tanggung jawab ketua
+  untuk ditinjau pemilik, tanpa klaim penyusunan dataset atau metrik hasil baru.
+- [Penyisihan Datavidia 9 di Kaggle](https://www.kaggle.com/competitions/comodity-price-prediction-penyisihan-arkavidia-9)
+  mencatat prediksi harga komoditas pangan di 34 provinsi. Angka entrants,
+  participants aktif, dan teams pada Kaggle berbeda definisi; tidak dipakai untuk
+  mengganti estimasi peserta yang diberikan pemilik. Babak penyisihan daring dan
+  final di ITB sesuai guidebook serta dokumentasi kompetisi.
+- Tour Division Staff AMI 2023: nama dan peran diperiksa pada sertifikat
+  `Sektour AMI - Mohamad Maulana Firdaus Ramadhan.pdf`. Tahun 2023 tercetak pada
+  sertifikat; tidak mengarang tugas atau tanggal mulai/selesai.
+- IT Staff Parade Wisuda Oktober ITB 2022: sertifikat `IT Wisokto - Maul.pdf`
+  mencantumkan nama pemilik, Staff IT, dan periode Agustus–Oktober 2022.
+  Sertifikat kepanitiaan tidak ditambahkan sebagai sertifikasi teknis atau award.
+  Surat dan sertifikat baru ini tidak disalin ke public; menghindari NIM panitia lain.
+
+### Proyek, makalah, dan kompetisi
+
+| Entri | Sumber yang diperiksa | Batas klaim |
+| --- | --- | --- |
+| [Fraud Call Detector](https://github.com/ashhforrd/Fraud-Detection) | README, app.py, makalah lokal Laporan_eyay enjinir.pdf | Streamlit membandingkan Qwen2-Audio dan Whisper–Sailor2; QLoRA serta 1.034 dialog dari makalah. F1 99,03%/95,19% pada 104 sampel sintetis, bukan performa produksi |
+| [FraudSense](https://github.com/ashhforrd/FraudSense) | README, backend/services/fraudDetection.js, backend/routes/ai-analysis.js | Prototipe React/Express/Socket.IO/WebRTC, analisis teks dan audio melalui vLLM, hasil di MongoDB; tidak mengklaim jumlah pengguna atau akurasi aplikasi |
+| [ChatDoctor](https://github.com/ValentinoTriadi/STEIKedokteran) | app/page.tsx, app/api/chatbot.py, bukti TSDN yang sudah dikurasi | Melengkapi entri yang sudah ada; Sailor2-1B-Chat/Transformers/FastAPI, prototipe informasi kesehatan; tidak menambahkan paper yang belum tersedia |
+| [DoNation](https://github.com/Maull09/do-nation) | README, package.json, struktur source | Proyek kuliah II3120 tim empat anggota, bukan produk AI atau integrasi pembayaran produksi |
+| EngLearn | [web](https://github.com/Maull09/englearn-web), [mobile](https://github.com/Maull09/englearn-mobile), [API](https://github.com/Maull09/englearn-api); quiz.tsx, lesson.ts, schema.ts | Satu produk web/mobile/API; kuis, video, dan progres terbukti di source. Tidak mengklaim fitur AI atau peningkatan hasil belajar |
+
+Paper deteksi penipuan suara tetap satu entri tahun 2025, dengan tautan ke kedua
+repository fraud. Sertifikat finalis tim eyay enjinir yang sudah dipublikasikan
+menghubungkan konteks RISTEK Datathon UI 2025; Top 10 dan 200+ peserta tetap
+bersumber dari CV. Detail tugas pemilik di masing-masing komponen proyek tim
+belum terpisah dari kontribusi tim; deskripsi tidak mengklaim pengerjaan sendiri.
+DoNation dan EngLearn ditambahkan atas permintaan pemilik setelah audit awal.
+
+Banner `public/images/projects/do-nation-banner.webp` berasal dari
+[banner README DoNation](https://github.com/user-attachments/assets/e1ccf870-e486-4a87-83a5-7100bdec82b5),
+1800×529 menjadi 1600×470, dikonversi WebP. Aset telah dilihat: mockup kampanye,
+aksi, dan leaderboard; tidak memuat token atau kontak pribadi yang terlihat.
+Logo atau screenshot baru untuk proyek lain belum ditambahkan karena tidak ada
+aset produk terkurasi yang telah diperiksa.
+
+## Audit kronologi dan perpindahan bahasa — 11 Oktober 2026
+
+Perubahan tetap di lokal. Experience sudah mengikuti waktu mulai terbaru
+(Apr 2026, Feb 2026, Okt 2025, Jul 2025, Mar 2025); masa kerja yang tumpang tindih
+tetap utuh. Organisasi dan kepanitiaan mengikuti pola sama dengan ketelitian tahun
+untuk jabatan tanpa bulan. Papers sudah berurutan 2025, 2024, 2023.
+Jumlah peserta Datavidia pada source lokal saat pemeriksaan akhir adalah sekitar
+600; nilai lokal ini dipertahankan dan tes diselaraskan. Catatan sekitar 800 pada
+audit sebelumnya merekam keterangan awal pemilik, bukan jumlah yang kini ditampilkan.
+Awards sekarang menempatkan RISTEK dan FindIT Hackathon 2025 sebelum award 2024
+dan GEMASTIK XVI 2023. RISTEK mendahului FindIT berdasarkan sertifikat 20 September
+2025 dan 17 Mei 2025. Di dalam tahun yang sama, urutan kurasi dipertahankan jika
+bulan tidak diketahui. Sertifikasi tanpa tahun tetap berada setelah DataCamp DS 2023.
+
+Sertifikat speaker SPARTA menampilkan 3 Agustus 2024; KAT menampilkan 20 Juli 2024.
+Kadwil hanya menampilkan 2024, sehingga tanggal tidak ditebak dari nama file.
+Speakers sekarang berurutan SPARTA, KAT, kadwil; tanggal lengkap dua sesi pertama
+ditampilkan di penanda kiri dalam kedua bahasa.
+
+Tahun proyek 2025: EyeNimal (paper Animal Species, koreksi pemilik), BattleTalk
+(FindIT Hackathon), Fraud Call Detector/FraudSense (paper dan RISTEK), dan GRPO
+Legal Reasoning (paper, koreksi pemilik). Tahun proyek 2024: ChatDoctor (TSDN),
+RoadEye (Hackfest), Marketplace Recommender (Hology), Trash Reporting (GEMASTIK XVII).
+FlightOps, Agrotech, Finance Tracker, DoNation, dan EngLearn tetap tanpa tahun;
+waktu pembuatan repository atau screenshot tidak dipakai sebagai bukti periode proyek.
+Dua karya unggulan tetap menjadi pembuka berlabel; proyek lainnya diurutkan
+berdasarkan tahun dengan entri tanpa tahun terakhir, tanpa duplikasi proyek.
+
+Tahun Best Staff pada foto dicocokkan dengan CV: penghargaan IT Database pada
+Februari dan satu-satunya Februari dalam periode STEI-K Nov 2022–Okt 2023 adalah
+Februari 2023. Ini merupakan pencocokan konteks foto dan CV, bukan pembacaan tahun
+pada gambar. Foto MIQ tetap tanpa tahun. Galeri memakai grid dalam urutan baca
+kiri ke kanan agar urutan visual dan DOM sama; bingkai 4:3 menampilkan foto utuh.
+
+Script tema memakai `ThemeInitializer` dan `useServerInsertedHTML` agar hanya
+disisipkan satu kali ke HTML server. Komponen mengembalikan null pada render client,
+menghindari script yang tidak dieksekusi saat navigasi ID/EN. Observer marquee
+menangkap elemen ketika dipasang, dilepas saat cleanup, dan mengabaikan callback
+yang terlambat setelah cleanup. Ini menangani ref yang menjadi null saat unmount.
+
+## Koreksi urutan pemilik dan commit proyek — 11 Oktober 2026
+
+Award 2024 sekarang dimulai TSDN, Hology, GEMASTIK XVII sesuai urutan yang
+diberikan pemilik. Perkiraan Desember, Oktober/November, dan Agustus/September
+tidak dimasukkan sebagai tanggal pasti. Speakers mengikuti SPARTA, kadwil, KAT;
+tanggal kadwil tetap belum diketahui. Foto MIQ dikonfirmasi pemilik sebagai
+GEMASTIK XVI 2023, sehingga caption dan tahun diperbarui. Foto itu ditempatkan
+sebelum Best Staff Februari 2023.
+
+Pemilik meminta seluruh proyek diurutkan berdasarkan commit terakhir, sehingga
+kelompok Karya unggulan/Proyek lainnya dihapus. GitHub REST API `commits?per_page=1`
+dibaca untuk branch default setiap repository; tanggal memakai `commit.committer.date`.
+Metadata disimpan sebagai `lastCommit` pada konten lokal; website tidak memanggil
+GitHub saat dibuka. Ini adalah tanggal update kode, bukan tanggal pencapaian atau
+publikasi paper. EngLearn memakai commit terbaru di antara web, mobile, dan API.
+
+| Proyek | Commit terakhir (UTC) | Bukti |
+| --- | --- | --- |
+| Finance Tracker | 2026-10-11 13:24:25 | [commit](https://github.com/Maull09/finance-tracker/commit/fe37c355464257de764e2740d04dfe09cf3b9b1a) |
+| FlightOps Sentinel | 2026-10-02 03:34:12 | [commit](https://github.com/Maull09/flightops-sentinel/commit/64d0da7af355ec2433141740cd90e833fa537f85) |
+| FraudSense | 2025-08-08 04:07:17 | [commit](https://github.com/ashhforrd/FraudSense/commit/4f18286579667c83888a38b577c6684c5a60a57e) |
+| GRPO Legal Reasoning | 2025-07-31 14:46:37 | [commit](https://github.com/Maull09/grpo-indonesian-legal-reasoning/commit/e00dfa679f57da0d012fe3fbbdfe7bf724cd678b) |
+| Fraud Call Detector | 2025-07-10 16:39:57 | [commit](https://github.com/ashhforrd/Fraud-Detection/commit/f333256e03a93f64a22c502f86076a1eaacfa193) |
+| EyeNimal | 2025-06-04 00:34:58 | [commit](https://github.com/Maull09/eyenimal/commit/d8007b969446699cf7cec2187f8f00734f7561b0) |
+| Agrotech | 2025-06-03 02:26:43 | [commit](https://github.com/Maull09/agrotech/commit/7e25d33022cd86f50a581e4df0cf9cb5012323b5) |
+| BattleTalk | 2025-05-14 15:55:48 | [commit](https://github.com/Maull09/battletalk/commit/d11410ef17a6a166fbc5ee22d04e86584e59d281) |
+| EngLearn | 2025-01-17 15:06:32 | [mobile commit](https://github.com/Maull09/englearn-mobile/commit/076ae58db21552e0dab6a467828f7a6503c389f3) |
+| DoNation | 2024-12-20 14:39:26 | [commit](https://github.com/Maull09/do-nation/commit/c94bfc92a10290363499736d1984d31ef9802356) |
+| ChatDoctor | 2024-12-09 09:45:18 | [commit](https://github.com/ValentinoTriadi/STEIKedokteran/commit/8fa0cb439e1f966f900775f068d7e8be9381db82) |
+| RoadEye | 2024-01-18 16:40:07 | [commit](https://github.com/ValentinoTriadi/RoadEye/commit/dd11eaff31cb5fe4576179b7ce97ecb4d2dd6bca) |
+
+EngLearn web: 2024-11-14 17:40:47 UTC; API: 2025-01-17 11:46:03 UTC.
+Marketplace Recommender dan Trash Reporting belum mempunyai repository yang
+terverifikasi terkait; tahun dokumen 2024 dipakai untuk penempatan pada akhir
+kelompok 2024. Kedua entri tidak diberi label tanggal update kode.
+
+Tombol pause dihapus dari kedua marquee beserta state, ikon, dan kolom kontrol.
+Hover/fokus keyboard dan reduced motion tetap bekerja. Lebar kelompok diambil
+dari `ResizeObserverEntry.borderBoxSize`, sehingga callback tidak lagi memanggil
+`getBoundingClientRect()` pada ref. Lebar terakhir dipertahankan saat hanya
+viewport yang berubah, dan observer mengabaikan callback setelah cleanup.

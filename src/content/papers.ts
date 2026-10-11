@@ -10,6 +10,7 @@ type Paper = {
   description: LocalizedText;
   evaluation: LocalizedText;
   url: DocumentUrl;
+  codeLinks?: { label: string; href: DocumentUrl }[];
 };
 
 export const papers: Paper[] = [
@@ -34,7 +35,11 @@ export const papers: Paper[] = [
       "id": "Pada 104 sampel uji sintetis, ASR+LLM mencapai F1 99,03% dan LALM 95,19%. Analisis audio riil mencatat kesalahan transkripsi pada baseline.",
       "en": "On 104 synthetic test samples, ASR+LLM reached F1 99.03% and LALM 95.19%. Real-audio analysis identified a baseline transcription error."
     },
-    "url": "/documents/papers/indonesian-voice-fraud.pdf"
+    "url": "/documents/papers/indonesian-voice-fraud.pdf",
+    codeLinks: [
+      { label: "Fraud-Detection", href: "https://github.com/ashhforrd/Fraud-Detection" },
+      { label: "FraudSense", href: "https://github.com/ashhforrd/FraudSense" }
+    ]
   },
   {
     "id": "grpo-legal-reasoning",

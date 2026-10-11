@@ -4,12 +4,13 @@ import type { DocumentUrl } from "./document-url";
 type Project = {
   id: string;
   title: string;
+  year: string | null;
+  lastCommit: { date: string; url: string } | null;
   category: LocalizedText;
   description: LocalizedText;
   contribution: LocalizedText;
   context: LocalizedText;
   technologies: string[];
-  featured: boolean;
   links: { label: LocalizedText; href: DocumentUrl }[];
   image?: {
     src: string;
@@ -24,6 +25,8 @@ type Project = {
 export const projects: Project[] = [
   {
     "id": "eyenimal",
+    lastCommit: {"date":"2025-06-04T00:34:58Z","url":"https://github.com/Maull09/eyenimal/commit/d8007b969446699cf7cec2187f8f00734f7561b0"},
+    year: "2025",
     "title": "EyeNimal",
     "category": {
       "id": "Computer vision · Proyek tim",
@@ -43,7 +46,6 @@ export const projects: Project[] = [
       "YOLO",
       "Python"
     ],
-    "featured": true,
     "image": {
       "src": "/images/projects/eyenimal-banner.webp",
       "width": 1600,
@@ -76,6 +78,8 @@ export const projects: Project[] = [
   },
   {
     "id": "battletalk",
+    lastCommit: {"date":"2025-05-14T15:55:48Z","url":"https://github.com/Maull09/battletalk/commit/d11410ef17a6a166fbc5ee22d04e86584e59d281"},
+    year: "2025",
     "title": "BattleTalk",
     "category": {
       "id": "Voice & LLM · Proyek tim",
@@ -96,7 +100,6 @@ export const projects: Project[] = [
       "Qwen2.5",
       "Supabase"
     ],
-    "featured": false,
     "image": {
       "src": "/images/projects/battletalk-banner.webp",
       "width": 1500,
@@ -129,6 +132,8 @@ export const projects: Project[] = [
   },
   {
     "id": "agrotech",
+    lastCommit: {"date":"2025-06-03T02:26:43Z","url":"https://github.com/Maull09/agrotech/commit/7e25d33022cd86f50a581e4df0cf9cb5012323b5"},
+    year: null,
     "title": "Agrotech",
     "category": {
       "id": "Applied AI & IoT · Proyek tim",
@@ -148,7 +153,6 @@ export const projects: Project[] = [
       "PyTorch",
       "IoT"
     ],
-    "featured": false,
     "image": {
       "src": "/images/projects/agrotech-banner.webp",
       "width": 1600,
@@ -174,6 +178,8 @@ export const projects: Project[] = [
   },
   {
     "id": "flightops-sentinel",
+    lastCommit: {"date":"2026-10-02T03:34:12Z","url":"https://github.com/Maull09/flightops-sentinel/commit/64d0da7af355ec2433141740cd90e833fa537f85"},
+    year: null,
     "title": "FlightOps Sentinel",
     "category": {
       "id": "ML systems · Platform lokal",
@@ -195,7 +201,6 @@ export const projects: Project[] = [
       "FastAPI",
       "Docker"
     ],
-    "featured": true,
     "architecture": [
       "PostgreSQL",
       "T−24h features",
@@ -226,6 +231,8 @@ export const projects: Project[] = [
   },
   {
     "id": "finance-tracker",
+    lastCommit: {"date":"2026-10-11T13:24:25Z","url":"https://github.com/Maull09/finance-tracker/commit/fe37c355464257de764e2740d04dfe09cf3b9b1a"},
+    year: null,
     "title": "Finance Tracker",
     "category": {
       "id": "AI product engineering · Proyek pribadi",
@@ -251,7 +258,6 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Supabase"
     ],
-    "featured": false,
     "links": [
       {
         "label": {
@@ -279,7 +285,111 @@ export const projects: Project[] = [
     }
   },
   {
+    id: "fraud-detection",
+    lastCommit: {"date":"2025-07-10T16:39:57Z","url":"https://github.com/ashhforrd/Fraud-Detection/commit/f333256e03a93f64a22c502f86076a1eaacfa193"},
+    year: "2025",
+    title: "Fraud Call Detector",
+    category: { id: "Speech & LLM · Riset tim", en: "Speech & LLM · Team research" },
+    description: {
+      id: "Sistem deteksi penipuan suara berbahasa Indonesia dengan dua pendekatan: Qwen2-Audio yang menganalisis audio langsung, dan Whisper–Sailor2 yang mengklasifikasikan transkrip. Aplikasi Streamlit menampilkan transkripsi dan prediksi kedua model untuk audio yang diunggah.",
+      en: "An Indonesian voice-fraud detector comparing two approaches: Qwen2-Audio analyzes audio directly, while Whisper–Sailor2 classifies its transcript. A Streamlit app displays the transcription and both models' predictions for uploaded audio."
+    },
+    contribution: {
+      id: "Mengembangkan sistem bersama tim eyay enjinir dan menulis studi komparatif LALM versus ASR+LLM. Pipeline mencakup dialog sintetis, audio Azure TTS, preprocessing, serta fine-tuning QLoRA.",
+      en: "Developed the system with the eyay enjinir team and co-authored the LALM versus ASR+LLM study. The pipeline covers synthetic dialogues, Azure TTS audio, preprocessing, and QLoRA fine-tuning."
+    },
+    context: {
+      id: "Pada 104 sampel uji sintetis, Whisper–Sailor2 mencapai F1 99,03% dan Qwen2-Audio 95,19%. Penelitian menggunakan 1.034 percakapan sintetis; hasil pengujian audio riil dianalisis terpisah dalam makalah.",
+      en: "On 104 synthetic test samples, Whisper–Sailor2 reached F1 99.03% and Qwen2-Audio 95.19%. The study uses 1,034 synthetic conversations; real-audio results are analyzed separately in the manuscript."
+    },
+    technologies: ["Python", "Streamlit", "Qwen2-Audio", "Whisper", "Sailor2", "QLoRA", "Azure TTS"],
+    links: [
+      { label: { id: "Lihat kode", en: "View code" }, href: "https://github.com/ashhforrd/Fraud-Detection" },
+      { label: { id: "Baca makalah", en: "Read paper" }, href: "/documents/papers/indonesian-voice-fraud.pdf" },
+      { label: { id: "Prototipe FraudSense", en: "FraudSense prototype" }, href: "https://github.com/ashhforrd/FraudSense" }
+    ]
+  },
+  {
+    id: "fraudsense",
+    lastCommit: {"date":"2025-08-08T04:07:17Z","url":"https://github.com/ashhforrd/FraudSense/commit/4f18286579667c83888a38b577c6684c5a60a57e"},
+    year: "2025",
+    title: "FraudSense",
+    category: { id: "AI product engineering · Prototipe tim", en: "AI product engineering · Team prototype" },
+    description: {
+      id: "Prototipe chat dan panggilan video dengan analisis risiko penipuan pada pesan serta audio. React menyediakan antarmuka percakapan; Express dan Socket.IO menangani komunikasi, sementara WebRTC menghubungkan panggilan antar pengguna.",
+      en: "A chat and video-call prototype with fraud-risk analysis for messages and audio. React provides the conversation interface, Express and Socket.IO handle communication, and WebRTC connects user calls."
+    },
+    contribution: {
+      id: "Mengembangkan FraudSense bersama tim eyay enjinir untuk membawa eksperimen deteksi penipuan ke alur percakapan. Layanan analisis menghubungkan model Sailor2 dan Qwen2-Audio melalui endpoint vLLM, lalu menyimpan hasil analisis di MongoDB.",
+      en: "Developed FraudSense with the eyay enjinir team to bring fraud-detection experiments into a conversation workflow. Its analysis service connects Sailor2 and Qwen2-Audio through vLLM endpoints and stores analysis results in MongoDB."
+    },
+    context: {
+      id: "Tim eyay enjinir menjadi Top 10 Finalist RISTEK Datathon UI 2025. Prototipe memuat analisis teks dengan debounce, unggahan audio, skor risiko, dan notifikasi hasil melalui Socket.IO.",
+      en: "The eyay enjinir team reached the Top 10 at RISTEK Datathon UI 2025. The prototype includes debounced text analysis, audio uploads, risk scores, and result notifications through Socket.IO."
+    },
+    technologies: ["React", "Express", "Socket.IO", "WebRTC", "MongoDB", "vLLM", "Sailor2", "Qwen2-Audio"],
+    links: [
+      { label: { id: "Lihat kode", en: "View code" }, href: "https://github.com/ashhforrd/FraudSense" },
+      { label: { id: "Baca makalah", en: "Read paper" }, href: "/documents/papers/indonesian-voice-fraud.pdf" },
+      { label: { id: "Bukti finalis", en: "Finalist certificate" }, href: "/documents/certificates/ristek-datathon-team-2025.png" }
+    ]
+  },
+  {
+    id: "do-nation",
+    lastCommit: {"date":"2024-12-20T14:39:26Z","url":"https://github.com/Maull09/do-nation/commit/c94bfc92a10290363499736d1984d31ef9802356"},
+    year: null,
+    title: "DoNation",
+    category: { id: "Web engineering · Proyek tim", en: "Web engineering · Team project" },
+    description: {
+      id: "Prototipe crowdfunding yang menggabungkan kampanye donasi dan aksi sosial. Pengguna dapat melihat kampanye, membuka halaman donasi, mengikuti aksi, serta melihat riwayat dan leaderboard.",
+      en: "A crowdfunding prototype combining donation campaigns and social initiatives. Users can explore campaigns, open donation pages, join initiatives, and view their history and leaderboards."
+    },
+    contribution: {
+      id: "Berkolaborasi dalam tim empat anggota untuk membangun prototipe layanan crowdfunding pada mata kuliah II3120 Layanan Sistem Teknologi Informasi. Aplikasi memakai Next.js dan TypeScript, dengan Prisma serta PostgreSQL untuk data kampanye dan aktivitas.",
+      en: "Collaborated in a four-member team on a crowdfunding service prototype for the II3120 Information Technology Services course. The app uses Next.js and TypeScript, with Prisma and PostgreSQL for campaign and activity data."
+    },
+    context: {
+      id: "Proyek kuliah yang mengeksplorasi proses bisnis crowdfunding melalui kampanye donasi, dokumentasi aksi sosial, dan leaderboard partisipasi.",
+      en: "A course project exploring crowdfunding business processes through donation campaigns, social-initiative documentation, and participation leaderboards."
+    },
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+    image: {
+      src: "/images/projects/do-nation-banner.webp", width: 1600, height: 470,
+      alt: { id: "Banner asli DoNation dengan halaman kampanye, donasi, aksi sosial, dan leaderboard", en: "Original DoNation banner showing campaign, donation, social-initiative, and leaderboard pages" }
+    },
+    links: [
+      { label: { id: "Lihat kode", en: "View code" }, href: "https://github.com/Maull09/do-nation" }
+    ]
+  },
+  {
+    id: "englearn",
+    lastCommit: {"date":"2025-01-17T15:06:32Z","url":"https://github.com/Maull09/englearn-mobile/commit/076ae58db21552e0dab6a467828f7a6503c389f3"},
+    year: null,
+    title: "EngLearn",
+    category: { id: "Web & mobile engineering · Pembelajaran bahasa", en: "Web & mobile engineering · Language learning" },
+    description: {
+      id: "Platform belajar bahasa Inggris dengan unit materi, pelajaran video, kuis pilihan ganda, dan progres belajar. Tersedia antarmuka web Next.js serta aplikasi mobile React Native dan Expo.",
+      en: "An English-learning platform with study units, video lessons, multiple-choice quizzes, and learning progress. It includes a Next.js web interface and a React Native and Expo mobile app."
+    },
+    contribution: {
+      id: "Mengembangkan antarmuka web, aplikasi mobile, dan API Express untuk unit, pelajaran, autentikasi, serta progres pengguna. Skema PostgreSQL dengan Drizzle menghubungkan materi, pilihan jawaban, dan status penyelesaian latihan.",
+      en: "Developed the web interface, mobile app, and Express API for units, lessons, authentication, and user progress. A PostgreSQL schema built with Drizzle connects lessons, answer options, and exercise-completion status."
+    },
+    context: {
+      id: "Tiga repository membentuk satu produk: web, mobile, dan API. Kuis memberi feedback jawaban, melanjutkan latihan yang belum selesai, dan menyimpan progres pelajaran.",
+      en: "Three repositories form one product: web, mobile, and API. Quizzes provide answer feedback, resume unfinished exercises, and save lesson progress."
+    },
+    technologies: ["Next.js", "React Native", "Expo", "Express", "TypeScript", "Drizzle", "PostgreSQL"],
+    links: [
+      { label: { id: "Kode web", en: "Web code" }, href: "https://github.com/Maull09/englearn-web" },
+      { label: { id: "Kode mobile", en: "Mobile code" }, href: "https://github.com/Maull09/englearn-mobile" },
+      { label: { id: "Kode API", en: "API code" }, href: "https://github.com/Maull09/englearn-api" }
+    ]
+  },
+  {
     "id": "chatdoctor",
+    lastCommit: {"date":"2024-12-09T09:45:18Z","url":"https://github.com/ValentinoTriadi/STEIKedokteran/commit/8fa0cb439e1f966f900775f068d7e8be9381db82"},
+    year: "2024",
     "title": "ChatDoctor",
     "category": {
       "id": "LLM application · Proyek tim",
@@ -290,8 +400,8 @@ export const projects: Project[] = [
       "en": "An Indonesian-language health-information chatbot prototype with a chat interface and Python inference service."
     },
     "contribution": {
-      "id": "Mengembangkan ChatDoctor bersama tim untuk Data Science National Tournament, menggunakan Sailor2-1B-Chat melalui Hugging Face Transformers.",
-      "en": "Built ChatDoctor with the team for the Data Science National Tournament, using Sailor2-1B-Chat through Hugging Face Transformers."
+      "id": "Mengembangkan ChatDoctor bersama Tim STEI Kedokteran untuk Data Science National Tournament 2024. Antarmuka Next.js mengirim percakapan ke API FastAPI; Sailor2-1B-Chat menghasilkan respons melalui Hugging Face Transformers untuk percakapan informasi kesehatan berbahasa Indonesia.",
+      "en": "Built ChatDoctor with Tim STEI Kedokteran for the Data Science National Tournament 2024. The Next.js interface sends conversations to a FastAPI endpoint; Sailor2-1B-Chat generates Indonesian health-information responses through Hugging Face Transformers."
     },
     "context": {
       "id": "Top 10 Finalist Data Science National Tournament 2024 dengan prototipe percakapan informasi kesehatan berbasis LLM.",
@@ -301,9 +411,9 @@ export const projects: Project[] = [
       "Next.js",
       "Python",
       "Hugging Face",
-      "Sailor2"
+      "Sailor2",
+      "FastAPI"
     ],
-    "featured": false,
     "links": [
       {
         "label": {
@@ -326,6 +436,8 @@ export const projects: Project[] = [
   },
   {
     "id": "roadeye",
+    lastCommit: {"date":"2024-01-18T16:40:07Z","url":"https://github.com/ValentinoTriadi/RoadEye/commit/dd11eaff31cb5fe4576179b7ce97ecb4d2dd6bca"},
+    year: "2024",
     "title": "RoadEye",
     "category": {
       "id": "Computer vision · Prototipe tim",
@@ -349,7 +461,6 @@ export const projects: Project[] = [
       "Python",
       "PostgreSQL"
     ],
-    "featured": false,
     "links": [
       {
         "label": {
@@ -371,6 +482,8 @@ export const projects: Project[] = [
   },
   {
     "id": "marketplace-recommender",
+    lastCommit: null,
+    year: "2024",
     "title": "Marketplace Recommender System",
     "category": {
       "id": "Data mining · Proyek tim",
@@ -395,7 +508,6 @@ export const projects: Project[] = [
       "NearestNeighbors",
       "Tableau"
     ],
-    "featured": false,
     "links": [
       {
         "label": {
@@ -417,6 +529,8 @@ export const projects: Project[] = [
   },
   {
     "id": "trash-reporting",
+    lastCommit: null,
+    year: "2024",
     "title": "Trash Reporting System",
     "category": {
       "id": "Computer vision · Proyek tim",
@@ -439,7 +553,6 @@ export const projects: Project[] = [
       "YOLOv8",
       "Computer vision"
     ],
-    "featured": false,
     "links": [
       {
         "label": {
@@ -459,6 +572,8 @@ export const projects: Project[] = [
   },
   {
     "id": "grpo-legal-reasoning",
+    lastCommit: {"date":"2025-07-31T14:46:37Z","url":"https://github.com/Maull09/grpo-indonesian-legal-reasoning/commit/e00dfa679f57da0d012fe3fbbdfe7bf724cd678b"},
+    year: "2025",
     "title": "GRPO Indonesian Legal Reasoning",
     "category": {
       "id": "LLM post-training · Eksperimen",
@@ -483,7 +598,6 @@ export const projects: Project[] = [
       "GRPO",
       "Python"
     ],
-    "featured": false,
     "links": [
       {
         "label": {

@@ -25,6 +25,10 @@ export function portfolioMetadata(locale: Locale, config: SiteConfig = siteConfi
     title,
     description: messages.description,
     applicationName: profile.name,
+    icons: { icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "16x16 32x32 48x48" },
+    ] },
     authors: [{ name: profile.name, url: canonical }],
     creator: profile.name,
     metadataBase: config.url ? new URL(config.url) : undefined,
@@ -65,6 +69,7 @@ export function profileStructuredData(locale: Locale, config: SiteConfig = siteC
     mainEntity: {
       "@type": "Person",
       name: profile.name,
+      alternateName: profile.alternateNames,
       jobTitle: profile.role,
       description: profile.introduction[locale],
       sameAs: [profile.github, profile.linkedin].filter((url) => url !== null),

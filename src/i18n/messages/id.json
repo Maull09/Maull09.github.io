@@ -14,7 +14,7 @@
     "skills": "Keahlian Teknis",
     "projects": "Proyek Pilihan",
     "experience": "Pengalaman",
-    "organizational": "Pengalaman Organisasi",
+    "organizational": "Organisasi & Kepanitiaan",
     "writings": "Tulisan",
     "awards": "Penghargaan",
     "certifications": "Sertifikasi",
@@ -57,7 +57,8 @@
     "architecture": "Alur arsitektur ML",
     "architectureSource": "Dari pengolahan data hingga prediksi batch dan API.",
     "contribution": "Peran & kontribusi",
-    "context": "Hasil & konteks"
+    "context": "Hasil & konteks",
+    "updated": "Diperbarui"
   },
   "speakers": {
     "role": "Pembicara tamu",
@@ -70,8 +71,6 @@
   },
   "motion": {
     "focus": "Fokus kerja",
-    "technologies": "Tech stack",
-    "pause": "Jeda animasi",
-    "resume": "Lanjutkan animasi"
+    "technologies": "Tech stack"
   }
 }

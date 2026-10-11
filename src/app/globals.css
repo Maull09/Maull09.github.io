@@ -12,7 +12,7 @@
 }
 
 html[data-theme="dark"] {
-  --background: #161616;
+  --background: #000000;
   --surface: #222222;
   --text-primary: #eeeeee;
   --text-secondary: #b3b3b3;
@@ -24,7 +24,7 @@ html[data-theme="dark"] {
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) {
-    --background: #161616;
+    --background: #000000;
     --surface: #222222;
     --text-primary: #eeeeee;
     --text-secondary: #b3b3b3;
@@ -145,7 +145,9 @@ section, main { scroll-margin-top: 24px; }
 }
 
 .theme-toggle {
-  min-width: 56px;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
   min-height: 44px;
   padding: 8px;
   border: 1px solid var(--text-secondary);
@@ -157,9 +159,10 @@ section, main { scroll-margin-top: 24px; }
 }
 
 .theme-toggle:hover { background: var(--surface); }
+.theme-action-dark { display: inline-flex; }
 .theme-action-light { display: none; }
 html[data-theme="dark"] .theme-action-dark { display: none; }
-html[data-theme="dark"] .theme-action-light { display: inline; }
+html[data-theme="dark"] .theme-action-light { display: inline-flex; }
 .mobile-navigation { margin-left: 0; }
 .menu-trigger {
   min-height: 44px;
@@ -179,7 +182,6 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
   background-color: var(--section-background);
   background-image: repeating-linear-gradient(135deg, transparent 0 7px, color-mix(in srgb, var(--text-primary) 4%, transparent) 7px 8px);
 }
-.portfolio-section:nth-of-type(even), .marquee-focus { --section-background: var(--surface); }
 .portfolio-section:nth-of-type(3n + 2) {
   background-image: radial-gradient(circle, color-mix(in srgb, var(--text-primary) 4%, transparent) 0.7px, transparent 0.9px);
   background-size: 12px 12px;
@@ -242,7 +244,7 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
 .section-heading-icon { display: inline-flex; flex-shrink: 0; color: var(--text-secondary); }
 
 .about-copy { display: grid; gap: 20px; width: 100%; color: var(--text-secondary); }
-.marquee { display: grid; grid-template-columns: minmax(0, 1fr) 44px; align-items: center; gap: 12px; min-width: 0; border-block: 1px solid var(--border); color: var(--text-secondary); }
+.marquee { min-width: 0; border-block: 1px solid var(--border); color: var(--text-secondary); }
 .marquee-viewport { overflow: hidden; }
 .marquee-track { display: flex; width: max-content; animation: marquee-scroll 38s linear infinite; animation-play-state: paused; }
 .marquee-group { display: flex; align-items: center; flex-shrink: 0; gap: 40px; padding: 20px 40px 20px 20px; }
@@ -255,10 +257,7 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
 .marquee-tech .marquee-track { animation-duration: 70s; }
 .marquee-tech .marquee-group { min-width: min(calc(100vw - 40px), 1040px); }
 .tech-logo { width: 28px; height: 28px; flex-shrink: 0; background: currentColor; mask-repeat: no-repeat; mask-position: center; mask-size: contain; }
-.marquee-toggle { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--text-secondary); border-radius: 4px; background: var(--section-background); color: var(--text-primary); cursor: pointer; }
-.marquee-focus { padding-right: 20px; }
-.marquee-toggle:hover { color: var(--accent-hover); }
-.marquee[data-visible="true"][data-paused="false"] .marquee-track { animation-play-state: running; }
+.marquee[data-visible="true"] .marquee-track { animation-play-state: running; }
 .marquee[data-visible="true"]:hover .marquee-track, .marquee[data-visible="true"]:focus-within .marquee-track { animation-play-state: paused; }
 @keyframes marquee-scroll { to { transform: translateX(calc(-1 * var(--marquee-distance))); } }
 .skills-list { display: grid; gap: 20px; margin: 0; }
@@ -284,9 +283,9 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
 .project-cover-logo { aspect-ratio: 3 / 2; padding: 24px; justify-items: center; }
 .project-cover-logo img { width: 144px; max-width: 100%; }
 .project-content { min-width: 0; }
+.project-year { margin-right: 14px; font-variant-numeric: tabular-nums; }
 .project .project-category { margin: 0 0 6px; color: var(--text-secondary); font-size: 13px; }
 .project h3 { font-size: 19px; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em; }
-.project-featured h3 { font-size: 22px; }
 .project p { max-width: 70ch; margin-top: 10px; color: var(--text-secondary); }
 .technology-list { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; color: var(--text-secondary); font-size: 13px; }
 .project-links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 8px; }
@@ -389,9 +388,10 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
 .writing-entry > div > p { max-width: 70ch; margin-top: 10px; color: var(--text-secondary); }
 .credential-entry a { text-decoration: underline; text-underline-offset: 4px; }
 .credential-entry h3 { min-height: 44px; display: flex; align-items: center; }
-.moments-grid { column-count: 1; column-gap: 24px; }
-.moment { width: 100%; margin-bottom: 24px; break-inside: avoid; }
-.moment-photo { width: 100%; height: auto; border-radius: 6px; }
+.moments-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.moment { min-width: 0; }
+.moment-frame { aspect-ratio: 4 / 3; overflow: hidden; background: var(--surface); border-radius: 6px; }
+.moment-photo { width: 100%; height: 100%; object-fit: contain; }
 .moment figcaption { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; margin-top: 12px; color: var(--text-secondary); font-size: 13px; }
 .moment-caption { overflow-wrap: anywhere; }
 .moment-caption:only-child { grid-column: 1 / -1; }
@@ -420,7 +420,7 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
   .experience-entry.speaker-entry { gap: 24px; }
   .writing-entry { grid-template-columns: 132px minmax(0, 1fr); gap: 28px; align-items: baseline; }
   .credential-entry { gap: 24px; }
-  .moments-grid { column-count: 2; }
+  .moments-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 1024px) {
@@ -434,8 +434,7 @@ html[data-theme="dark"] .theme-action-light { display: inline; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee { grid-template-columns: minmax(0, 1fr); }
   .marquee .marquee-track { animation: none; width: auto; }
   .marquee .marquee-group { flex-wrap: wrap; width: 100%; min-width: 0; }
-  .marquee .marquee-copy, .marquee .marquee-toggle { display: none; }
+  .marquee .marquee-copy { display: none; }
 }
