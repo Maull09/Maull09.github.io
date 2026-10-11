@@ -14,7 +14,7 @@
     "skills": "Technical Skills",
     "projects": "Selected Projects",
     "experience": "Experience",
-    "organizational": "Organizational Experience",
+    "organizational": "Organizations & Committees",
     "writings": "Writings",
     "awards": "Awards",
     "certifications": "Certifications",
@@ -57,7 +57,8 @@
     "architecture": "ML architecture flow",
     "architectureSource": "From data processing to batch and API predictions.",
     "contribution": "Role & contribution",
-    "context": "Results & context"
+    "context": "Results & context",
+    "updated": "Updated"
   },
   "speakers": {
     "role": "Guest speaker",
@@ -70,8 +71,6 @@
   },
   "motion": {
     "focus": "Areas of work",
-    "technologies": "Tech stack",
-    "pause": "Pause animation",
-    "resume": "Resume animation"
+    "technologies": "Tech stack"
   }
 }

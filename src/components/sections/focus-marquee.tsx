@@ -5,7 +5,7 @@ import type { Dictionary } from "@/i18n";
 
 export function FocusMarquee({ messages }: { messages: Dictionary["motion"] }) {
   return (
-    <Marquee id="focus-marquee" label={messages.focus} variant="focus" messages={messages}>
+    <Marquee id="focus-marquee" label={messages.focus} variant="focus">
       {focusAreas.map((area) => (
         <li key={area} className="marquee-item">
           <span>{area}</span>

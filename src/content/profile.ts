@@ -2,6 +2,7 @@ import type { LocalizedText } from "./localized-text";
 
 type PublicProfile = {
   name: string;
+  alternateNames: string[];
   shortName: string;
   role: string;
   introduction: LocalizedText;
@@ -15,6 +16,7 @@ type PublicProfile = {
 
 export const profile: PublicProfile = {
   "name": "Mohamad Maulana Firdaus Ramadhan",
+  "alternateNames": ["Mohamad Maulana Firdaus R.", "maull04", "Maull09"],
   "shortName": "Maulana Firdaus",
   "role": "AI Engineer",
   "introduction": {

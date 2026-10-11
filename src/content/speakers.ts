@@ -6,21 +6,23 @@ type SpeakingSession = {
   title: string;
   event: string;
   year: string;
+  date?: string;
   description: LocalizedText;
   certificate?: DocumentUrl;
 };
 
 export const speakers: SpeakingSession[] = [
   {
-    "id": "symphony-of-data",
-    "title": "Symphony of Data: The Key to Brilliant Decision Making",
-    "event": "KAT ITB",
+    "id": "introduction-to-data-science",
+    "title": "Introduction to Data Science",
+    "event": "SPARTA HMIF 2023",
     "year": "2024",
+    "date": "2024-08-03",
     "description": {
-      "id": "Membahas penggunaan data analytics untuk pengambilan keputusan dalam acara pelatihan terpusat.",
-      "en": "Presented how data analytics supports decision-making at a centralized training event."
+      "id": "Menyampaikan sesi pengantar konsep data science dan jalur karier kepada mahasiswa baru.",
+      "en": "Delivered an introductory session on data science concepts and career paths for new students."
     },
-    "certificate": "/documents/certificates/speaker-kat-2024.pdf"
+    "certificate": "/documents/certificates/speaker-sparta-2024.png"
   },
   {
     "id": "data-competition-strategies",
@@ -34,14 +36,15 @@ export const speakers: SpeakingSession[] = [
     "certificate": "/documents/certificates/speaker-kadwil-2024.pdf"
   },
   {
-    "id": "introduction-to-data-science",
-    "title": "Introduction to Data Science",
-    "event": "SPARTA HMIF 2023",
+    "id": "symphony-of-data",
+    "title": "Symphony of Data: The Key to Brilliant Decision Making",
+    "event": "KAT ITB",
     "year": "2024",
+    "date": "2024-07-20",
     "description": {
-      "id": "Menyampaikan sesi pengantar konsep data science dan jalur karier kepada mahasiswa baru.",
-      "en": "Delivered an introductory session on data science concepts and career paths for new students."
+      "id": "Membahas penggunaan data analytics untuk pengambilan keputusan dalam acara pelatihan terpusat.",
+      "en": "Presented how data analytics supports decision-making at a centralized training event."
     },
-    "certificate": "/documents/certificates/speaker-sparta-2024.png"
+    "certificate": "/documents/certificates/speaker-kat-2024.pdf"
   }
 ];

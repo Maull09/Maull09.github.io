@@ -2,6 +2,48 @@ import type { Credential } from "./credential";
 
 export const awards: Credential[] = [
   {
+    "id": "ristek",
+    "title": {
+      "id": "Top 10 Finalist · Ristek Datathon UI",
+      "en": "Top 10 Finalist · Ristek Datathon UI"
+    },
+    "issuer": "RISTEK Fasilkom UI · eyay enjinir",
+    "year": "2025",
+    "url": "/documents/certificates/ristek-datathon-team-2025.png",
+    "description": {
+      "id": "Meraih Top 10 Finalist bersama tim eyay enjinir dari lebih dari 200 peserta. Mengembangkan deteksi penipuan percakapan berbahasa Indonesia melalui eksperimen Qwen2-Audio dan pipeline Whisper–Sailor2, serta prototipe FraudSense untuk analisis chat dan audio.",
+      "en": "Reached the Top 10 with the eyay enjinir team among 200+ participants. Developed Indonesian conversation-fraud detection through Qwen2-Audio and Whisper–Sailor2 experiments, plus the FraudSense prototype for chat and audio analysis."
+    }
+  },
+  {
+    "id": "findit-hackathon",
+    "title": {
+      "id": "Top 10 Finalist · FindIT Hackathon",
+      "en": "Top 10 Finalist · FindIT Hackathon"
+    },
+    "issuer": "FindIT UGM · BattleTalk",
+    "year": "2025",
+    "url": "/documents/certificates/findit-hackathon-2025.pdf",
+    "description": {
+      "id": "Mengembangkan aplikasi pembelajaran bahasa Inggris berbasis AI dengan gamifikasi menggunakan Vite, Qwen2.5, dan Supabase.",
+      "en": "Engineered an AI-powered English learning app with gamification using Vite, Qwen2.5, and Supabase."
+    }
+  },
+  {
+    "id": "dsnt",
+    "title": {
+      "id": "Top 10 Finalist · Data Science National Tournament",
+      "en": "Top 10 Finalist · Data Science National Tournament"
+    },
+    "issuer": "ChatDoctor · LLM healthcare chatbot",
+    "year": "2024",
+    "url": "/documents/certificates/tsdn-2024.pdf",
+    "description": {
+      "id": "Mengembangkan ChatDoctor, prototipe chatbot berbasis LLM untuk percakapan informasi kesehatan dalam bahasa Indonesia.",
+      "en": "Built ChatDoctor, an LLM chatbot prototype for health-information conversations in Indonesian."
+    }
+  },
+  {
     "id": "hology",
     "title": {
       "id": "Juara 1 · Hology 7.0 Data Mining",
@@ -27,20 +69,6 @@ export const awards: Credential[] = [
     "description": {
       "id": "Mengembangkan sistem pelaporan dan deteksi sampah berbasis AI menggunakan model YOLOv8 yang dilatih khusus untuk inferensi real-time.",
       "en": "Developed an AI-powered Trash Reporting and Detection System using custom-trained YOLOv8 models for real-time inference."
-    }
-  },
-  {
-    "id": "dsnt",
-    "title": {
-      "id": "Top 10 Finalist · Data Science National Tournament",
-      "en": "Top 10 Finalist · Data Science National Tournament"
-    },
-    "issuer": "ChatDoctor · LLM healthcare chatbot",
-    "year": "2024",
-    "url": "/documents/certificates/tsdn-2024.pdf",
-    "description": {
-      "id": "Mengembangkan ChatDoctor, prototipe chatbot berbasis LLM untuk percakapan informasi kesehatan dalam bahasa Indonesia.",
-      "en": "Built ChatDoctor, an LLM chatbot prototype for health-information conversations in Indonesian."
     }
   },
   {
@@ -72,31 +100,17 @@ export const awards: Credential[] = [
     }
   },
   {
-    "id": "findit-hackathon",
+    "id": "hackfest",
     "title": {
-      "id": "Top 10 Finalist · FindIT Hackathon",
-      "en": "Top 10 Finalist · FindIT Hackathon"
+      "id": "Top 20 Teams · GDSC Hackfest Indonesia",
+      "en": "Top 20 Teams · GDSC Hackfest Indonesia"
     },
-    "issuer": "FindIT UGM · BattleTalk",
-    "year": "2025",
-    "url": "/documents/certificates/findit-hackathon-2025.pdf",
+    "issuer": "GDSC Hackfest · RoadEye",
+    "year": "2024",
+    "url": "/documents/certificates/hackfest-2024.pdf",
     "description": {
-      "id": "Mengembangkan aplikasi pembelajaran bahasa Inggris berbasis AI dengan gamifikasi menggunakan Vite, Qwen2.5, dan Supabase.",
-      "en": "Engineered an AI-powered English learning app with gamification using Vite, Qwen2.5, and Supabase."
-    }
-  },
-  {
-    "id": "ristek",
-    "title": {
-      "id": "Top 10 Finalist · Ristek Datathon UI",
-      "en": "Top 10 Finalist · Ristek Datathon UI"
-    },
-    "issuer": "Ristek · Universitas Indonesia",
-    "year": "2025",
-    "url": "/documents/certificates/ristek-datathon-team-2025.png",
-    "description": {
-      "id": "Meraih Top 10 Finalist dari lebih dari 200 peserta melalui pengembangan dan optimasi model machine learning.",
-      "en": "Reached the Top 10 among 200+ participants by building and optimizing machine-learning models."
+      "id": "Membangun RoadEye bersama tim, menggabungkan antarmuka Next.js dan analisis lalu lintas berbasis Python.",
+      "en": "Built RoadEye with the team, combining a Next.js interface with Python traffic analysis."
     }
   },
   {
@@ -111,20 +125,6 @@ export const awards: Credential[] = [
     "description": {
       "id": "Mengembangkan Automated Traffic Condition Monitoring, sistem computer vision menggunakan YOLOv8 untuk mendeteksi anomali lalu lintas secara real-time.",
       "en": "Developed \"Automated Traffic Condition Monitoring,\" a computer vision system using YOLOv8 for real-time traffic anomaly detection."
-    }
-  },
-  {
-    "id": "hackfest",
-    "title": {
-      "id": "Top 20 Teams · GDSC Hackfest Indonesia",
-      "en": "Top 20 Teams · GDSC Hackfest Indonesia"
-    },
-    "issuer": "GDSC Hackfest · RoadEye",
-    "year": "2024",
-    "url": "/documents/certificates/hackfest-2024.pdf",
-    "description": {
-      "id": "Membangun RoadEye bersama tim, menggabungkan antarmuka Next.js dan analisis lalu lintas berbasis Python.",
-      "en": "Built RoadEye with the team, combining a Next.js interface with Python traffic analysis."
     }
   }
 ];

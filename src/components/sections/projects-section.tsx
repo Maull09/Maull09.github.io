@@ -3,16 +3,28 @@ import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import type { Dictionary, Locale } from "@/i18n";
 
-const orderedProjects = [...projects.filter((project) => project.featured), ...projects.filter((project) => !project.featured)];
+const orderedProjects = [...projects].sort((a, b) =>
+  (b.lastCommit?.date ?? b.year ?? "").localeCompare(a.lastCommit?.date ?? a.year ?? ""));
 
 export function ProjectsSection({ messages, locale }: { messages: Dictionary; locale: Locale }) {
   return (
     <Section id="projects" title={messages.sections.projects}>
       <div className="projects-grid">
         {orderedProjects.map((project) => (
-          <article key={project.id} id={`project-${project.id}`} className={`project ${project.featured ? "project-featured" : ""} ${project.image ? "project-with-image" : ""}`}>
+          <article key={project.id} id={`project-${project.id}`} className={`project ${project.image ? "project-with-image" : ""}`}>
             <div className="project-content">
-              <p className="project-category">{project.category[locale]}</p>
+              <p className="project-category">
+                {project.lastCommit ? (
+                  <span className="project-year">
+                    {messages.projects.updated}{" "}
+                    <time dateTime={project.lastCommit.date}>
+                      {new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Jakarta" }).format(new Date(project.lastCommit.date))}
+                    </time>
+                  </span>
+                ) : project.year && <time className="project-year" dateTime={project.year}>{project.year}</time>}
+                {" "}
+                {project.category[locale]}
+              </p>
               <h3>{project.title}</h3>
               <p>{project.description[locale]}</p>
               <dl className="project-details">

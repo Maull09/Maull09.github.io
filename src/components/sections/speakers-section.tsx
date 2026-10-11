@@ -14,7 +14,13 @@ export function SpeakersSection({ messages, locale }: { messages: Dictionary; lo
               <span className="speaker-icon">
                 <MicrophoneStageIcon size={20} weight="regular" aria-hidden="true" focusable="false" />
               </span>
-              <p className="entry-period">{session.year}</p>
+              <p className="entry-period">
+                <time dateTime={session.date ?? session.year}>
+                  {session.date
+                    ? new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(session.date))
+                    : session.year}
+                </time>
+              </p>
             </div>
             <div className="speaker-content">
               <h3>{session.title}</h3>

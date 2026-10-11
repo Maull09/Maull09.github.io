@@ -98,13 +98,15 @@ test("sitemap includes only the canonical language pages with matching alternate
   assert.equal(seo.portfolioRobots().rules.allow, "/", "Crawlers can read preview noindex directives");
 });
 
-test("profile schema uses only visible, verified identity and professional links", () => {
+test("profile schema uses verified identity, owner-provided aliases, and professional links", () => {
   for (const locale of ["id", "en"]) {
     const data = seo.profileStructuredData(locale, published);
     assert.equal(data["@type"], "ProfilePage");
     assert.equal(data.inLanguage, locale);
     assert.equal(data.mainEntity["@type"], "Person");
     assert.equal(data.mainEntity.name, profile.name);
+    assert(Array.isArray(data.mainEntity.alternateName));
+    assert.equal(data.mainEntity.alternateName.join("|"), "Mohamad Maulana Firdaus R.|maull04|Maull09");
     assert.equal(data.mainEntity.jobTitle, profile.role);
     assert.equal(data.mainEntity.description, profile.introduction[locale]);
     assert.equal(data.mainEntity.sameAs.join("|"), [profile.github, profile.linkedin].join("|"));

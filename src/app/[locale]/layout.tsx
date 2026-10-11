@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, locales } from "@/i18n";
 import type { LocaleRouteProps } from "@/i18n";
 import { portfolioMetadata } from "@/seo/portfolio";
-import { themeInitializationScript } from "@/theme/theme";
+import { ThemeInitializer } from "@/components/layout/theme-initializer";
 import "../globals.css";
 
 const lora = Lora({ subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], variable: "--font-lora", display: "swap" });
@@ -29,9 +29,9 @@ export default async function RootLayout({ children, params }: LocaleRouteProps 
   return (
     <html lang={locale} className={`${lora.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+        <ThemeInitializer locale={locale} />
         <noscript><style>{".theme-toggle { display: none; }"}</style></noscript>
-        <noscript><style>{".marquee { grid-template-columns: minmax(0, 1fr); } .marquee .marquee-track { animation: none; width: auto; } .marquee .marquee-track > .marquee-group { flex-wrap: wrap; width: 100%; min-width: 0; } .marquee .marquee-copy, .marquee .marquee-toggle { display: none; }"}</style></noscript>
+        <noscript><style>{".marquee .marquee-track { animation: none; width: auto; } .marquee .marquee-track > .marquee-group { flex-wrap: wrap; width: 100%; min-width: 0; } .marquee .marquee-copy { display: none; }"}</style></noscript>
       </head>
       <body>{children}</body>
     </html>

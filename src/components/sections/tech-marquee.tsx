@@ -4,7 +4,7 @@ import type { Dictionary } from "@/i18n";
 
 export function TechMarquee({ messages }: { messages: Dictionary["motion"] }) {
   return (
-    <Marquee id="tech-marquee" label={messages.technologies} variant="tech" messages={messages}>
+    <Marquee id="tech-marquee" label={messages.technologies} variant="tech">
       {featuredTechnologies.map((technology) => (
         <li key={technology.slug} className="marquee-item">
           <span className="tech-logo" aria-hidden="true"

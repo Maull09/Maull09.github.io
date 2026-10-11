@@ -53,7 +53,7 @@ Jika token berubah secara permanen, perbarui dokumen ini sebelum implementasi.
 | `accent-hover` | `#525252` | Hover tautan dan kontrol |
 | `border` | `#E0E0E0` | Pemisah dan batas non-esensial |
 
-Tema gelap memakai background `#161616`, surface `#222222`, text-primary
+Tema gelap memakai background hitam `#000000`, surface `#222222`, text-primary
 `#EEEEEE`, text-secondary `#B3B3B3`, accent `#FFFFFF`, accent-hover `#CCCCCC`,
 dan border `#383838`. Permukaan untuk banner dan logo proyek tetap putih agar
 aset asli terbaca. Pemisah bersifat dekoratif; outline fokus memakai accent.
@@ -65,8 +65,12 @@ memiliki garis bawah agar bisa dikenali tanpa mengandalkan warna.
 kontras non-teks minimal 3:1.
 
 Tema pertama mengikuti preferensi perangkat; pilihan manual disimpan di
-`localStorage` dan berlaku pada kedua bahasa. Tombol tema berlabel selalu terlihat
-di header. Terapkan preferensi sebelum halaman dicat untuk menghindari kilatan
+`localStorage` dan berlaku pada kedua bahasa. Tombol tema selalu terlihat di header,
+berukuran minimal 44 × 44 px, dengan ikon Phosphor regular 20 px: bulan untuk
+beralih ke tema gelap dan matahari untuk beralih ke tema terang. Label tindakan
+tersedia melalui aria-label dan tooltip dalam ID/EN; ikon bersifat dekoratif.
+Pilihan tema tetap berlaku saat berganti bahasa, termasuk ketika
+penyimpanan browser tidak tersedia. Terapkan preferensi sebelum halaman dicat untuk menghindari kilatan
 tema terang. Jika penyimpanan tidak tersedia, pilihan tetap bekerja pada halaman
 aktif. Tanpa JavaScript, CSS mengikuti tema perangkat dan kontrol tema disembunyikan.
 Foto, banner, logo, dan screenshot mempertahankan warna asli. Palet monochrome
@@ -130,14 +134,15 @@ Judul tetap berupa teks semantik; ikon dekoratif diberi aria-hidden dan focusabl
 Hero dan semua section memakai tekstur CSS statis. Tiga pola berulang mengikuti
 urutan section: diagonal 1 px setiap 8 px, titik kecil setiap 12 px, dan garis
 horizontal 1 px setiap 24 px. Semua memakai text-primary pada opacity 4 persen.
-Latar bergantian antara background dan surface dalam tema yang sedang aktif.
+Semua section memakai warna dasar background yang sama dengan Hero:
+`#000000` pada tema gelap dan `#FAFAFA` pada tema terang.
 Urutan dihitung dari section yang benar-benar dirender, sehingga section tersembunyi
 tidak meninggalkan celah. Baris fokus di bawah Hero juga memakai tekstur diagonal
-dengan latar surface.
+dengan latar background yang sama.
 Dasar kontrol marquee dan lingkaran titik timeline mengikuti latar section masing-masing.
 Tekstur ditempatkan sebagai background agar tidak menutupi foto, screenshot,
 teks, atau kontrol. Tidak ada animasi tekstur atau aset baru yang perlu dimuat.
-Asumsi: variasi latar membantu pengunjung membedakan setiap bagian saat scrolling
+Asumsi: variasi tekstur membantu pengunjung membedakan setiap bagian saat scrolling
 tanpa mengubah palet monochrome, hierarki konten, atau susunan halaman.
 
 ### Header dan navigasi
@@ -156,6 +161,8 @@ header agar judul tetap terlihat setelah navigasi. Sediakan tautan lewati naviga
 
 Pilihan bahasa Indonesia (ID) dan Inggris (EN) berada di header desktop dan di
 dalam menu mobile. Bahasa aktif ditandai secara visual dan dengan `aria-current`.
+Pergantian bahasa mempertahankan section dan bagian teks yang sedang dibaca,
+termasuk saat panjang terjemahan berbeda. Koreksi posisi dilakukan tanpa animasi.
 Tautan bahasa memiliki nama yang jelas dan target sentuh minimal 44 × 44 px.
 
 ### Hero
@@ -183,8 +190,8 @@ label jelas dan hanya ditampilkan jika tujuannya tersedia.
 Banner asli ditampilkan utuh dengan `object-fit: contain`, tanpa memotong nama atau
 tampilan produk. Logo memakai ukuran lebih kecil di tengah permukaan gambar;
 slide presentasi diberi alt text sebagai slide, bukan screenshot aplikasi.
-Rasio gambar mengikuti aset sumber. EyeNimal menjadi proyek
-unggulan visual. FlightOps memakai alur arsitektur responsif yang merangkum
+Rasio gambar mengikuti aset sumber. EyeNimal memakai banner asli proyek.
+FlightOps memakai alur arsitektur responsif yang merangkum
 dokumentasi repository, berlabel arsitektur. Jelaskan status platform lokal dan
 batas hasil evaluasinya. Proyek kolaborasi diberi label tim; pembagian tugas pribadi
 yang tidak terdokumentasi tidak diklaim. Section tanpa materi asli tidak dirender.
@@ -192,7 +199,15 @@ yang tidak terdokumentasi tidak diklaim. Section tanpa materi asli tidak dirende
 Diagram arsitektur wajib berasal dari proyek yang bersangkutan dan tetap terbaca
 di mobile. Penjelasan teks menyertai diagram yang menyampaikan informasi penting.
 
-Kurasi diperluas menjadi sepuluh proyek. Setiap entri memuat masalah, peran dan
+Semua proyek memakai satu daftar tanpa kelompok karya unggulan. Urutkan berdasarkan
+commit terakhir pada branch default repository, terbaru terlebih dahulu. Produk
+dengan beberapa repository memakai commit terbaru di antara repository produk itu.
+Tanggal update ditampilkan sebelum kategori dengan label ID/EN; tahun penelitian
+atau kompetisi tetap mengikuti sumbernya dan tidak dianggap tanggal commit.
+Proyek tanpa repository memakai tahun dokumen pada akhir kelompok tahun yang sama;
+jangan mengarang hari atau bulan. Semua judul proyek memakai skala yang sama.
+
+Kurasi diperluas menjadi empat belas proyek. Setiap entri memuat masalah, peran dan
 kontribusi, hasil atau konteks evaluasi, teknologi, dan tautan sumber yang tersedia.
 Prototipe dan eksperimen dinyatakan sesuai tahapnya. Jangan menambahkan repository,
 gambar, demo, atau hasil evaluasi yang tidak tersedia.
@@ -200,6 +215,9 @@ gambar, demo, atau hasil evaluasi yang tidak tersedia.
 ### Pengalaman dan organisasi
 
 Gunakan daftar kronologis dengan periode, peran, organisasi, dan kontribusi.
+Urutan pengalaman mengikuti waktu mulai terbaru; peran aktif berada di awal.
+Periode yang tumpang tindih tetap ditampilkan lengkap. Untuk peran yang hanya
+memiliki tahun, bandingkan tahunnya tanpa mengarang bulan jabatan.
 Tampilkan seluruh butir kontribusi dari CV sebagai bullet points, termasuk
 judul topik dan detail implementasi. Lokasi tersedia bersama periode.
 Jangan merangkum beberapa butir menjadi satu paragraf atau menyembunyikannya.
@@ -212,6 +230,8 @@ Experience dan Organizational Experience memakai satu garis timeline vertikal
 setebal 1 px dalam warna border, dengan titik kecil di awal setiap periode.
 Garis membantu mengikuti urutan pengalaman dan tidak menggantikan label tanggal.
 Pertahankan ruang baca pada mobile; garis dan titik tetap berada di sisi kiri.
+Organisasi dan kepanitiaan berbagi section serta timeline yang sama. Judul section
+menyebut keduanya; gunakan tahun saja jika periode jabatan belum terverifikasi.
 
 ### Technical Skills
 
@@ -240,11 +260,11 @@ salinan identik untuk sambungan loop. Jumlah salinan mengikuti lebar viewport,
 dan jarak transform mengikuti lebar satu kelompok agar loop tetap tersambung.
 Salinan visual disembunyikan dari screen reader.
 Kecepatan dibuat tenang: 38 detik untuk fokus, 70 detik untuk teknologi.
-Sediakan tombol ikon jeda/lanjutkan dengan label aksesibilitas ID/EN dan target 44 px,
-tanpa tulisan terlihat atau tooltip teks.
+Tidak ada tombol jeda/lanjutkan atau kolom kosong untuk kontrol tersebut.
+Area marquee dapat menerima fokus keyboard untuk menjeda gerakan.
 Hover, fokus keyboard, dan posisi di luar viewport menjeda gerakan.
 Tanpa JavaScript atau saat reduced motion aktif, tampilkan satu daftar statis
-yang membungkus sesuai ruang; sembunyikan salinan dan kontrol animasi.
+yang membungkus sesuai ruang; sembunyikan salinan animasi.
 Asumsi: pengunjung ingin mengenali fokus dan stack dengan cepat. Kemampuan menjeda
 dan daftar keahlian lengkap menjaga keterbacaan pada ponsel maupun desktop.
 
@@ -262,6 +282,9 @@ Provenance dan rincian keterbatasan bukti disimpan di docs/PROJECT_AUDIT.md.
 Speakers merupakan section tersendiri, terpisah dari pengalaman organisasi.
 Gunakan judul sesi sebagai H3, diikuti acara, tahun, ringkasan topik, dan tautan
 sertifikat jika tersedia. Tahun angkatan pada nama acara berbeda dari tahun sesi.
+Urutkan sesi mengikuti koreksi pemilik: SPARTA, kadwil, lalu KAT.
+Tanggal terverifikasi ditampilkan di
+penanda kiri dan boleh membungkus; tanggal kadwil tidak disimpulkan dari nama file.
 Setiap aktivitas memakai ikon MicrophoneStage regular 20 px dalam lingkaran
 berbingkai 44 px di kiri, dengan tahun di bawah ikon. Isi sesi memakai kolom
 fleksibel pada desktop maupun mobile. Ikon dekoratif memakai aria-hidden dan
@@ -277,6 +300,8 @@ mengaitkan dokumen dengan proyek berbeda hanya karena tautan CV menyebutnya demi
 Gunakan ikon dokumen dalam lingkaran berbingkai 44 px di sisi kiri setiap makalah,
 diikuti tahun. Judul dan tautan membaca berada dalam satu baris pada desktop;
 susun vertikal saat ruang sempit. Ikon panah mendampingi tautan membaca.
+Tautan repository terkait ditampilkan setelah evaluasi, dengan nama proyek sebagai
+label. Gunakan pola tautan teks yang membungkus pada mobile seperti di Projects.
 Ikon Contact mengikuti tujuan tautan: email, GitHub, dan LinkedIn.
 Semua ikon memakai Phosphor regular 20 px dan warna teks yang sama dengan label.
 Ikon yang didampingi label diberi aria-hidden dan tidak menerima fokus keyboard.
@@ -299,6 +324,11 @@ tahun, uraian lengkap dari CV, dan tautan bukti jika tersedia. Jika CV berbeda
 dengan makalah atau dokumen proyek, utamakan sumber proyek yang sudah diperiksa.
 Keduanya tetap menjadi section terpisah
 sesuai susunan yang disepakati.
+Urutkan setiap daftar dari tahun terbaru ke terlama, lalu entri tanpa tahun.
+Di dalam tahun yang sama, gunakan tanggal terverifikasi bila tersedia; pertahankan
+urutan kurasi untuk entri yang hanya memiliki tahun.
+Urutan award 2024 mengikuti koreksi pemilik: TSDN, Hology, GEMASTIK XVII,
+lalu award lain. Bulan yang masih berupa perkiraan tidak ditambahkan ke konten.
 
 Setiap penghargaan memakai ikon Trophy dan setiap sertifikasi memakai ikon
 Certificate dari Phosphor regular, 20 px dalam lingkaran berbingkai 44 px.
@@ -311,21 +341,21 @@ Ikon dekoratif tidak menerima fokus dan disembunyikan dari screen reader.
 ### Moments
 
 Gunakan 6–8 foto pilihan sebagai target kurasi awal, disesuaikan dengan aset nyata.
-Galeri memakai masonry CSS columns: dua kolom mulai 768 px dan satu kolom pada
-mobile, dengan jarak 24 px. Setiap foto dan caption menjadi satu unit yang tidak
-terbelah antarkolom. Urutan baca mengikuti DOM, dari atas ke bawah di kolom kiri,
-lalu kolom kanan. Foto portrait dan landscape mempertahankan rasio aslinya dan
-mengisi kolom tanpa celah yang disebabkan tinggi baris grid.
+Galeri memakai CSS grid: dua kolom mulai 768 px dan satu kolom pada mobile,
+dengan jarak 24 px. Urutan baca mengikuti DOM, dari kiri ke kanan lalu ke baris
+berikutnya. Bingkai foto memakai rasio 4:3 agar baris sejajar; foto portrait dan
+landscape ditampilkan utuh dengan object-fit: contain di atas warna surface.
 Caption memuat kegiatan, tahun, dan konteks singkat. Nama tampilan section: Moments.
 Tahun berada di kiri caption dalam kolom 44 px; caption tanpa tahun memakai lebar penuh.
-Tahun hanya ditampilkan jika terverifikasi. Pertahankan rasio asli gambar agar
-wajah, sertifikat, dan konteks kegiatan terlihat utuh; jangan paksa crop 4:3.
+Tahun hanya ditampilkan jika terverifikasi. Pertahankan rasio asli foto di dalam
+bingkai agar wajah, sertifikat, dan konteks kegiatan terlihat utuh.
 
 Kurasi saat ini memuat delapan gambar: sesi dan apresiasi pembicara, presentasi
 Objective Quest dan GEMASTIK, penghargaan Hology, kegiatan tim MIQ, dan Best Staff Award.
 Kelompokkan foto dari acara yang sama dalam urutan baca. Untuk dokumentasi 2024,
 urutan kurasi dimulai dari pasangan foto Hology, GEMASTIK, Objective Quest, lalu
-pasangan foto pembicara. Foto MIQ dan Best Staff Award tanpa tahun berada di akhir.
+pasangan foto pembicara. Foto tim MIQ adalah GEMASTIK XVI 2023 sesuai koreksi
+pemilik; letakkan sebelum Best Staff Award Februari 2023.
 Gunakan gambar responsif dengan alt text dan caption ID/EN. Warna foto tetap asli;
 jumlah gambar mengikuti materi nyata. Buang elemen antarmuka ponsel dari screenshot
 penghargaan tanpa mengubah isi dokumentasinya.

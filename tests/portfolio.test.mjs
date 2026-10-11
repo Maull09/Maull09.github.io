@@ -96,6 +96,7 @@ for (const locale of ["id", "en"]) {
       "EyeNimal", "BattleTalk", "Agrotech", "FlightOps Sentinel", "Finance Tracker",
       "ChatDoctor", "RoadEye", "Marketplace Recommender System", "Trash Reporting System",
       "GRPO Indonesian Legal Reasoning",
+      "Fraud Call Detector", "FraudSense", "DoNation", "EngLearn",
     ]) {
       assert(html.includes(`<h3>${title}</h3>`));
     }
@@ -147,7 +148,7 @@ for (const locale of ["id", "en"]) {
     assert.match(html, /<summary\b[^>]*>Menu<\/summary>/);
     assert(html.includes(`aria-label="${messages[locale].controls.mobileNavigation}"`));
     const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
-    assert.equal(images.length, 16);
+    assert.equal(images.length, 17);
     for (const image of images) {
       assert.match(image, /alt="[^"]+"/);
       assert.match(image, /width="\d+"/);
@@ -165,7 +166,7 @@ for (const locale of ["id", "en"]) {
     assert(head.includes(`property="og:description" content="${description}"`));
     assert(head.includes(`name="twitter:description" content="${description}"`));
     assert(head.includes(`property="og:locale" content="${locale === "id" ? "id_ID" : "en_US"}"`));
-    assert.match(head, /rel="icon"[^>]*href="\/icon.svg/);
+    assert.match(head, /rel="icon"[^>]*href="\/favicon.png/);
     if (siteUrl) {
       assert(head.includes(`rel="canonical" href="${siteUrl}/${locale}/"`));
       for (const [language, path] of [["id", "id"], ["en", "en"], ["x-default", "id"]]) {
@@ -181,6 +182,7 @@ for (const locale of ["id", "en"]) {
     const data = JSON.parse(schema[1]);
     assert.equal(data["@type"], "ProfilePage");
     assert.equal(data.mainEntity.name, "Mohamad Maulana Firdaus Ramadhan");
+    assert.deepEqual(data.mainEntity.alternateName, ["Mohamad Maulana Firdaus R.", "maull04", "Maull09"]);
     assert.equal(data.mainEntity.jobTitle, "AI Engineer");
     assert.equal(data.inLanguage, locale);
     assert.equal(data.url, siteUrl ? `${siteUrl}/${locale}/` : undefined);
@@ -245,7 +247,7 @@ for (const locale of ["id", "en"]) {
   test(`${locale}: every project explains contribution and context with available evidence`, () => {
     const projectSection = pages[locale].match(/<section id="projects"[\s\S]*?<\/section>/)[0];
     const articles = [...projectSection.matchAll(/<article\b[\s\S]*?<\/article>/g)].map((match) => match[0]);
-    assert.equal(articles.length, 10);
+    assert.equal(articles.length, 14);
     for (const article of articles) {
       assert(article.includes(`<dt>${escapeHtml(messages[locale].projects.contribution)}</dt>`));
       assert(article.includes(`<dt>${escapeHtml(messages[locale].projects.context)}</dt>`));
@@ -278,7 +280,7 @@ for (const locale of ["id", "en"]) {
       assert.match(figure, /<span class="moment-caption">[^<]+<\/span>/);
       const caption = figure.match(/<figcaption>[\s\S]*?<\/figcaption>/)[0];
       if (image.url.includes("miq-data-mining") || image.url.includes("best-staff-recognition")) {
-        assert.doesNotMatch(caption, /class="moment-year"|20\d{2}/);
+        assert.match(caption, /<figcaption><span class="moment-year">2023<\/span><span class="moment-caption">/);
       } else {
         assert.match(caption, /<figcaption><span class="moment-year">2024<\/span><span class="moment-caption">/);
       }
@@ -287,6 +289,9 @@ for (const locale of ["id", "en"]) {
     assert.match(gallery, /Objective Quest/);
     assert.match(gallery, /Hology 7.0/);
     assert.match(gallery, /GEMASTIK XVII/);
+    const miq = figures.find((figure) => figure.includes("miq-data-mining.webp"));
+    assert(miq.includes(locale === "id" ? "GEMASTIK XVI · Tim MIQ, ITB" : "GEMASTIK XVI · MIQ team, ITB"));
+    assert.doesNotMatch(miq, /Di meja kompetisi|At the competition desk/);
     assert.match(gallery, /Best Staff Award/);
     assert.match(gallery, locale === "id" ? /Apresiasi pembicara/ : /Speaker appreciation/);
     assert.doesNotMatch(gallery, /image-placeholder/);
@@ -302,14 +307,14 @@ for (const locale of ["id", "en"]) {
       const section = html.match(new RegExp(`<section id="${id}"[\\s\\S]*?<\\/section>`))[0];
       assert.doesNotMatch(section, /<details\b|\shidden(?:[=\s>])|content-disclosure/);
       const articles = [...section.matchAll(/<article\b[\s\S]*?<\/article>/g)].map((match) => match[0]);
-      assert.equal(articles.length, id === "projects" ? 10 : 8);
+      assert.equal(articles.length, id === "projects" ? 14 : 8);
       for (const article of articles) {
         assert.match(article, /<dd>[^<]+<\/dd>/);
         assert.match(article, /href="(?:https:\/\/|\/documents\/)/);
       }
     }
     const projectIds = [...html.matchAll(/<article\b[^>]*id="project-([^"]+)"/g)].map((match) => match[1]);
-    assert.deepEqual(projectIds.slice(0, 2), ["eyenimal", "flightops-sentinel"]);
+    assert.deepEqual(projectIds.slice(0, 2), ["finance-tracker", "flightops-sentinel"]);
   });
 
   test(`${locale}: the complete name, skills, and CV contribution lists are rendered`, () => {
@@ -321,7 +326,7 @@ for (const locale of ["id", "en"]) {
     for (const technology of ["Shell Scripting", "Transformer Architecture", "LoRA", "Quantization (GPTQ)", "Kubernetes (K8s)", "Hugging Face", "NumPy", "OpenCV", "FAISS", "Chroma", "Redis (Queues)", "FastAPI", "REST APIs", "Webhooks", "SIP", "Twilio", "ElevenLabs", "GEPA", "BM25", "Langfuse", "MLflow", "Airflow", "QLoRA", "GRPO"]) {
       assert(skills.includes(technology), `Missing CV skill: ${technology}`);
     }
-    for (const [id, expected] of [["experience", 28], ["organizational", 3], ["speakers", 3], ["awards", 9], ["certifications", 6]]) {
+    for (const [id, expected] of [["experience", 28], ["organizational", 8], ["speakers", 3], ["awards", 9], ["certifications", 6]]) {
       const section = html.match(new RegExp(`<section id="${id}"[\\s\\S]*?<\\/section>`))[0];
       const bullets = [...section.matchAll(/<ul class="entry-bullets">([\s\S]*?)<\/ul>/g)]
         .flatMap((list) => [...list[1].matchAll(/<li>/g)]);
@@ -333,6 +338,46 @@ for (const locale of ["id", "en"]) {
       if (article[0].includes("<img")) assert(article[0].indexOf("<h3>") < article[0].indexOf("<img"));
     }
     assert.doesNotMatch(html, /href="tel:|\+62-877-2899-7015/);
+  });
+
+  test(`${locale}: committee roles and the fraud research, prototype, and competition stay connected`, () => {
+    const html = pages[locale];
+    const organization = html.match(/<section id="organizational"[\s\S]*?<\/section>/)[0];
+    const entries = [...organization.matchAll(/<li class="experience-entry">([\s\S]*?)<\/div><\/li>/g)]
+      .map((match) => match[1]);
+    assert.equal(entries.length, 6);
+    assert.match(entries[0], /Head of Datavidia/);
+    assert.match(entries[0], /ARKAVIDIA 9.0/);
+    assert.match(entries[0], /class="entry-period">2025<\/p>/);
+    assert.match(entries[0], /600/);
+    assert.doesNotMatch(entries[0], /Present|Sekarang/);
+    assert.match(organization, /Tour Division Staff/);
+    assert.match(organization, /Aku Masuk ITB \(AMI\) 2023/);
+    assert.match(organization, /Parade Wisuda Oktober ITB 2022/);
+
+    const projectSection = html.match(/<section id="projects"[\s\S]*?<\/section>/)[0];
+    assert.equal([...projectSection.matchAll(/<article\b/g)].length, 14);
+    assert.equal([...projectSection.matchAll(/id="project-chatdoctor"/g)].length, 1);
+    const research = html.match(/<section id="papers"[\s\S]*?<\/section>/)[0];
+    for (const [id, repository] of [["fraud-detection", "Fraud-Detection"], ["fraudsense", "FraudSense"]]) {
+      const project = html.match(new RegExp(`<article[^>]*id="project-${id}"[\\s\\S]*?<\\/article>`))[0];
+      assert(project.includes(`href="https://github.com/ashhforrd/${repository}"`));
+      assert(project.includes('href="/documents/papers/indonesian-voice-fraud.pdf"'));
+      assert(research.includes(`href="https://github.com/ashhforrd/${repository}"`));
+    }
+    const fraudProject = html.match(/<article[^>]*id="project-fraud-detection"[\s\S]*?<\/article>/)[0];
+    assert.match(fraudProject, /104/);
+    assert(fraudProject.includes(locale === "id" ? "sampel uji sintetis" : "synthetic test samples"));
+    const fraudSense = html.match(/<article[^>]*id="project-fraudsense"[\s\S]*?<\/article>/)[0];
+    assert(fraudSense.includes('href="/documents/certificates/ristek-datathon-team-2025.png"'));
+    const awardSection = html.match(/<section id="awards"[\s\S]*?<\/section>/)[0];
+    assert.match(awardSection, /eyay enjinir/);
+    assert.match(awardSection, /FraudSense/);
+    assert.match(awardSection, /ChatDoctor/);
+    const englearn = html.match(/<article[^>]*id="project-englearn"[\s\S]*?<\/article>/)[0];
+    for (const repository of ["englearn-web", "englearn-mobile", "englearn-api"]) {
+      assert(englearn.includes(`href="https://github.com/Maull09/${repository}"`));
+    }
   });
 
   test(`${locale}: current AI Center research and all five selected experience entries stay distinct`, () => {
@@ -360,7 +405,8 @@ for (const locale of ["id", "en"]) {
   test(`${locale}: corrected community tenure and document and contact links are accessible`, () => {
     const html = pages[locale];
     const organization = html.match(/<section id="organizational"[\s\S]*?<\/section>/)[0];
-    const firstEntry = organization.match(/<li class="experience-entry">([\s\S]*?)<\/div><\/li>/)[1];
+    const firstEntry = [...organization.matchAll(/<li class="experience-entry">([\s\S]*?)<\/div><\/li>/g)]
+      .map((match) => match[1]).find((entry) => entry.includes("<h3>Head of Community</h3>"));
     assert(firstEntry.includes(locale === "id" ? "Jun 2024 — Mei 2025" : "Jun 2024 — May 2025"));
     assert.match(firstEntry, /Head of Community/);
     assert.doesNotMatch(firstEntry, /Sekarang|Present/);
@@ -370,7 +416,7 @@ for (const locale of ["id", "en"]) {
       const section = html.match(new RegExp('<section id="' + id + '"[\\s\\S]*?<\\/section>'))[0];
       const content = section.replace(/<h2\b[\s\S]*?<\/h2>/, "");
       const icons = [...content.matchAll(/<svg\b[^>]*>/g)];
-      assert.equal(icons.length, id === "papers" ? 16 : 3);
+      assert.equal(icons.length, id === "papers" ? 18 : 3);
       for (const [svg] of icons) {
         assert.match(svg, /aria-hidden="true"/);
         assert.match(svg, /focusable="false"/);
@@ -383,7 +429,7 @@ for (const locale of ["id", "en"]) {
     }
   });
 
-  test(`${locale}: marquees preserve accessible content and localized pause controls`, () => {
+  test(`${locale}: marquees preserve accessible content without pause buttons`, () => {
     const html = pages[locale];
     const heroEnd = html.indexOf("</section>", html.indexOf('<section id="home"'));
     const focusStart = html.indexOf('id="focus-marquee"');
@@ -394,7 +440,7 @@ for (const locale of ["id", "en"]) {
       ["focus-marquee", 5, messages[locale].motion.focus],
       ["tech-marquee", 12, messages[locale].motion.technologies],
     ]) {
-      const region = html.match(new RegExp('<div[^>]*id="' + id + '"[\\s\\S]*?</button></div>'))[0];
+      const region = html.match(new RegExp('<div[^>]*id="' + id + '"[\\s\\S]*?</ul></div></div></div>'))[0];
       assert(region.includes('role="group" aria-label="' + label + '"'));
       const groups = [...region.matchAll(/<ul class="marquee-group(?: marquee-copy)?"[^>]*>([\s\S]*?)<\/ul>/g)];
       assert.equal(groups.length, 2);
@@ -402,12 +448,8 @@ for (const locale of ["id", "en"]) {
       assert.equal(groups[0][1], groups[1][1], "Repeated groups preserve loop content and spacing");
       assert.match(groups[1][0], /aria-hidden="true"/);
       assert.doesNotMatch(groups[0][0].slice(0, groups[0][0].indexOf(">")), /aria-hidden/);
-      assert(region.includes('aria-label="' + messages[locale].motion.pause + ': ' + label + '"'));
-      assert(region.includes('aria-controls="' + id + '-content"'));
-      assert.match(region, /aria-pressed="false"/);
-      const button = region.match(/<button\b[\s\S]*?<\/button>/)[0];
-      assert.doesNotMatch(button, /\btitle=/);
-      assert.equal(button.replace(/<svg\b[\s\S]*?<\/svg>/g, "").replace(/<[^>]*>/g, "").trim(), "");
+      assert.match(region, /tabindex="0"/);
+      assert.doesNotMatch(region, /<button\b|marquee-toggle|aria-pressed|data-paused/);
     }
     const head = html.slice(0, html.indexOf("<body"));
     assert.match(head, /<noscript><style>[^<]*\.marquee/);
@@ -455,15 +497,70 @@ for (const locale of ["id", "en"]) {
     assert(research.includes(locale === "id" ? "sampel uji sintetis" : "synthetic test samples"));
   });
 
+  test(`${locale}: awards and speaking sessions follow the owner's corrected chronology`, () => {
+    const awards = pages[locale].match(/<section id="awards"[\s\S]*?<\/section>/)[0];
+    const years = [...awards.matchAll(/class="entry-period">(\d{4})<\/p>/g)].map((match) => match[1]);
+    assert.deepEqual(years, ["2025", "2025", "2024", "2024", "2024", "2024", "2024", "2024", "2023"]);
+    assert(awards.indexOf("ristek-datathon-team-2025.png") < awards.indexOf("findit-hackathon-2025.pdf"));
+    const speakers = pages[locale].match(/<section id="speakers"[\s\S]*?<\/section>/)[0];
+    const dates = [...speakers.matchAll(/<time dateTime="([^"]+)">([^<]+)<\/time>/g)];
+    assert.deepEqual(dates.map((match) => match[1]), ["2024-08-03", "2024", "2024-07-20"]);
+    assert.match(dates[0][2], locale === "id" ? /3 Agu 2024/ : /Aug 3, 2024/);
+    assert.match(dates[2][2], locale === "id" ? /20 Jul 2024/ : /Jul 20, 2024/);
+    assert(speakers.indexOf("Introduction to Data Science") < speakers.indexOf("Symphony of Data"));
+    assert(speakers.indexOf("Data Competition Strategies") < speakers.indexOf("Symphony of Data"));
+    assert(awards.indexOf("tsdn-2024.pdf") < awards.indexOf("hology-2024.pdf"));
+    assert(awards.indexOf("hology-2024.pdf") < awards.indexOf("gemastik-xvii-2024.pdf"));
+    const organization = pages[locale].match(/<section id="organizational"[\s\S]*?<\/section>/)[0];
+    assert.deepEqual([...organization.matchAll(/<h3>([^<]+)<\/h3>/g)].map((match) => match[1]), [
+      "Head of Datavidia", "Head of Community", "Curriculum Developer", "Tour Division Staff", "Database Division Staff", "IT Staff",
+    ]);
+    const certifications = pages[locale].match(/<section id="certifications"[\s\S]*?<\/section>/)[0];
+    const certificates = certifications.split('<li class="credential-entry">').slice(1);
+    assert.match(certificates[0], /class="entry-period">2023<\/p>/);
+    for (const entry of certificates.slice(1)) assert.doesNotMatch(entry, /class="entry-period"/);
+  });
+
+  test(`${locale}: projects form one list ordered by their latest repository commits`, () => {
+    const section = pages[locale].match(/<section id="projects"[\s\S]*?<\/section>/)[0];
+    assert.doesNotMatch(section, /projects-featured|projects-other|project-group|project-featured/);
+    const articles = [...section.matchAll(/<article\b[\s\S]*?<\/article>/g)].map((match) => match[0]);
+    const ids = articles.map((article) => article.match(/id="project-([^"]+)"/)[1]);
+    assert.deepEqual(ids, [
+      "finance-tracker", "flightops-sentinel", "fraudsense", "grpo-legal-reasoning",
+      "fraud-detection", "eyenimal", "agrotech", "battletalk", "englearn", "do-nation",
+      "chatdoctor", "roadeye", "marketplace-recommender", "trash-reporting",
+    ]);
+    assert.equal(new Set(ids).size, 14);
+    const timestamps = articles.slice(0, 12).map((article) => article.match(/<time dateTime="([^"]+)"/)[1]);
+    assert.equal(timestamps.length, 12);
+    assert.deepEqual(timestamps, [...timestamps].sort().reverse());
+    assert.equal(timestamps[0], "2026-10-11T13:24:25Z");
+    assert.equal(timestamps[8], "2025-01-17T15:06:32Z", "EngLearn uses the newest commit across its three repositories");
+    for (const article of articles.slice(0, 12)) assert(article.includes(messages[locale].projects.updated));
+    for (const article of articles.slice(12)) {
+      assert.match(article, /class="project-year" dateTime="2024">2024<\/time>/);
+      assert(!article.includes(messages[locale].projects.updated), "Document years are not labeled as repository updates");
+    }
+  });
+
   test(`${locale}: the localized theme control and pre-paint initialization are rendered`, () => {
     const html = pages[locale];
     assert.match(html, new RegExp(`<button[^>]*class="theme-toggle"[^>]*aria-label="${messages[locale].theme.switchToDark}"`));
     const head = html.slice(0, html.indexOf("<body"));
     assert.match(head, /localStorage\.getItem\("portfolio-theme"\)/);
     assert.match(head, /prefers-color-scheme: dark/);
+    assert.equal([...head.matchAll(/<script id="portfolio-theme-init"/g)].length, 1);
     assert.match(head, /<noscript><style>\.theme-toggle \{ display: none; \}<\/style><\/noscript>/);
-    assert(html.includes(messages[locale].theme.dark));
-    assert(html.includes(messages[locale].theme.light));
+    const button = html.match(/<button[^>]*class="theme-toggle"[\s\S]*?<\/button>/)[0];
+    assert(button.includes(`title="${messages[locale].theme.switchToDark}"`));
+    const icons = [...button.matchAll(/<svg\b[^>]*>/g)].map((match) => match[0]);
+    assert.equal(icons.length, 2);
+    for (const icon of icons) {
+      assert.match(icon, /aria-hidden="true"/);
+      assert.match(icon, /focusable="false"/);
+    }
+    assert.equal(button.replace(/<[^>]+>/g, ""), "", "The theme button uses icons with an accessible action label");
   });
 }
 
@@ -475,8 +572,16 @@ test("edited English copy preserves each CV contribution and its concrete facts"
   }
   for (const sectionId of ["experience", "organizational"]) {
     const section = pages.en.match(new RegExp(`<section id="${sectionId}"[\\s\\S]*?<\\/section>`))[0];
-    const entries = [...section.matchAll(/<li class="experience-entry">([\s\S]*?)<\/div><\/li>/g)]
-      .map((match) => [...match[1].matchAll(/<ul class="entry-bullets">([\s\S]*?)<\/ul>/g)]
+    const entryContents = [...section.matchAll(/<li class="experience-entry">([\s\S]*?)<\/div><\/li>/g)]
+      .map((match) => match[1]);
+    const sourceEntries = sectionId === "organizational"
+      ? ["Head of Community", "Curriculum Developer", "Database Division Staff"].map((role) => {
+        const entry = entryContents.find((content) => content.includes(`<h3>${role}</h3>`));
+        assert(entry, `Missing CV role: ${role}`);
+        return entry;
+      })
+      : entryContents;
+    const entries = sourceEntries.map((entry) => [...entry.matchAll(/<ul class="entry-bullets">([\s\S]*?)<\/ul>/g)]
         .flatMap((list) => [...list[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((bullet) => normalize(bullet[1]))));
     const ids = sectionId === "experience"
       ? ["ai-center-agentic-platform", "neuram", "raisa", "spun", "partial-discharge"]
@@ -591,6 +696,43 @@ test("theme initialization and switching work when local storage is blocked", ()
   assert.equal(environment.api.getTheme(), "light");
 });
 
+test("manual light and dark themes survive repeated locale layout remounts", () => {
+  for (const blockedStorage of [false, true]) {
+    for (const systemDark of [false, true]) {
+      const environment = createThemeEnvironment({ blockedStorage, systemDark });
+      environment.api.initializeTheme();
+      for (const theme of [systemDark ? "light" : "dark", systemDark ? "dark" : "light"]) {
+        environment.api.toggleTheme();
+        assert.equal(environment.api.getTheme(), theme);
+        for (const locale of ["en", "id", "en", "id"]) {
+          delete environment.root.dataset.theme;
+          delete environment.root.dataset.themePreference;
+          environment.root.lang = locale;
+          environment.api.initializeTheme();
+          assert.equal(environment.root.dataset.theme, theme, `${locale}: manual theme survives remount`);
+          assert.equal(environment.root.dataset.themePreference, theme);
+        }
+      }
+    }
+  }
+});
+
+test("system theme remains responsive after a locale layout remount", () => {
+  const environment = createThemeEnvironment();
+  environment.api.initializeTheme();
+  delete environment.root.dataset.theme;
+  delete environment.root.dataset.themePreference;
+  environment.setSystemDark(true);
+  environment.api.initializeTheme();
+  assert.equal(environment.api.getTheme(), "dark");
+  assert.equal(environment.root.dataset.themePreference, "system");
+  const unsubscribe = environment.api.subscribeToTheme(() => {});
+  environment.setSystemDark(false);
+  assert.equal(environment.api.getTheme(), "light");
+  unsubscribe();
+  assert.equal(environment.listenerCount(), 0);
+});
+
 test("CV download serves the exact local PDF", async () => {
   const response = await fetch(`${origin}/documents/cv.pdf`);
   assert.equal(response.status, 200);
@@ -605,6 +747,7 @@ test("all original images are served locally without a runtime image optimizer",
   for (const path of [
     "profile/maulana", "projects/eyenimal-banner", "projects/battletalk-banner", "projects/agrotech-banner",
     "projects/finance-tracker-dashboard", "projects/chatdoctor-logo", "projects/roadeye-dashboard", "projects/marketplace-dashboard",
+    "projects/do-nation-banner",
     "moments/data-competition-speaking", "moments/objective-quest-presentation",
   ]) {
     const response = await fetch(`${origin}/images/${path}.webp`);
@@ -617,7 +760,7 @@ test("all original images are served locally without a runtime image optimizer",
   assert.equal(optimized.status, 404);
   for (const locale of ["id", "en"]) {
     const sources = [...pages[locale].matchAll(/<img\b[^>]*src="([^"]+)"/g)].map((match) => match[1]);
-    assert.equal(sources.length, 16);
+    assert.equal(sources.length, 17);
     for (const source of sources) {
       assert.match(source, /^\/images\/.*\.webp$/);
       const response = await fetch(origin + source);
@@ -666,6 +809,10 @@ test("the page serves both fonts and themes, preserves photo colors, and disable
   assert.match(css, /\.marquee \.marquee-track\s*\{[^}]*animation\s*:\s*none/);
   assert.match(css, /\.marquee \.marquee-copy[^}]*display\s*:\s*none/);
   assert.match(css, /@keyframes marquee-scroll[^}]*transform[^}]*var\(--marquee-distance\)/);
+  assert.match(css, /\.moments-grid\s*\{[^}]*display\s*:\s*grid/);
+  assert.doesNotMatch(css, /\.moments-grid\s*\{[^}]*column-count/);
+  assert.match(css, /\.moment-frame\s*\{[^}]*aspect-ratio\s*:\s*4\s*\/\s*3/);
+  assert.match(css, /\.moment-photo\s*\{[^}]*object-fit\s*:\s*contain/);
 });
 
 test("every curated paper and certificate serves the verified local asset", async () => {
@@ -745,6 +892,46 @@ test("static hosting serves deep links, exported client assets, and blocks priva
   }
   assert.equal((await fetch(`${origin}/.nojekyll`)).status, 404);
   assert.equal(readFileSync("out/.nojekyll", "utf8"), "");
+});
+
+test("home and localized pages declare a crawlable square PNG favicon", async () => {
+  const home = await fetch(`${origin}/`);
+  assert.equal(home.status, 200);
+  for (const html of [await home.text(), pages.id, pages.en]) {
+    const head = html.slice(0, html.indexOf("</head>"));
+    const links = [...head.matchAll(/<link\b[^>]*>/g)].map((match) => match[0]);
+    const icon = links.find((link) => /rel="icon"/.test(link) && /href="\/favicon.png"/.test(link));
+    assert(icon, "Every home page must identify a favicon in a Google-supported format");
+    assert.match(icon, /type="image\/png"/);
+    assert.match(icon, /sizes="96x96"/);
+    assert(links.some((link) => /rel="icon"/.test(link) && /href="\/favicon.ico"/.test(link)),
+      "Each page also provides a browser icon with tab-sized frames");
+  }
+  const response = await fetch(`${origin}/favicon.png`);
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type"), /image\/png/);
+  const png = Buffer.from(await response.arrayBuffer());
+  assert.equal(png.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+  assert.equal(png.readUInt32BE(16), 96);
+  assert.equal(png.readUInt32BE(20), 96);
+  assert.deepEqual(png, readFileSync("public/favicon.png"));
+  const browserIcon = await fetch(`${origin}/favicon.ico`);
+  assert.equal(browserIcon.status, 200);
+  assert.match(browserIcon.headers.get("content-type"), /image\/x-icon/);
+  const ico = Buffer.from(await browserIcon.arrayBuffer());
+  assert.equal(ico.readUInt16LE(0), 0);
+  assert.equal(ico.readUInt16LE(2), 1);
+  assert.equal(ico.readUInt16LE(4), 3);
+  for (const [index, size] of [16, 32, 48].entries()) {
+    const entry = 6 + index * 16;
+    assert.equal(ico[entry], size);
+    assert.equal(ico[entry + 1], size);
+    const offset = ico.readUInt32LE(entry + 12);
+    assert.equal(ico.subarray(offset, offset + 8).toString("hex"), "89504e470d0a1a0a");
+    assert.equal(ico.readUInt32BE(offset + 16), size);
+    assert.equal(ico.readUInt32BE(offset + 20), size);
+  }
+  assert.deepEqual(ico, readFileSync("public/favicon.ico"));
 });
 
 test("localized social previews serve 1200 by 630 PNGs and the favicon is available", async () => {
